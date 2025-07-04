@@ -1,14 +1,12 @@
 import Button from "@/components/ui/Button";
 import Motion from "@/components/animation/Motion";
-import Image from "next/image";
+
 
 export default function Contact() {
   return (
     <Motion>
-      <section id="contact" className="mx-auto max-w-[1200px] px-6 lg:px-12 scroll-mt-10">
+      <section id="contact" className="max-w-[1200px] mx-auto scroll-mt-10">
         <div className="flex flex-col-reverse lg:flex-row gap-16 py-24 items-center justify-between">
-          
-          {/* Contact Form — unchanged */}
           <div className="text-left my-auto mx-auto rounded-lg w-full lg:w-[500px] bg-gray-200 p-4">
             <h2 className="text-3xl lg:text-5xl font-bold text-orange-400">Contact us</h2>
             <h3 className="text-lg lg:text-xl font-bold text-blue-800">Lets Turn Your Dreams into Reality</h3>
@@ -36,17 +34,7 @@ export default function Contact() {
               <Button type='button'>Send message</Button>
             </form>
           </div>
-
-          {/* Image */}
-          <div className="relative w-full lg:w-[500px] h-[350px] lg:h-[500px] overflow-hidden rounded-lg shadow-lg">
-            <Image 
-              src={"/images/Contact.png"}
-              alt="Contact"
-              fill
-              className="object-cover transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
-            />
           </div>
-        </div>
       </section>
     </Motion>
   );

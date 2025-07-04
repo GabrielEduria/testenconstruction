@@ -22,7 +22,7 @@ export default function Vision() {
             <h2 className="text-3xl lg:text-5xl font-bold pb-3 text-blue-800">
               To be a trusted leader in the design and construction industry
             </h2>
-            <p className="text-base lg:text-lg leading-relaxed text-gray-700">
+            <p className="text-base lg:text-lg leading-relaxed text-gray-500">
               delivering world-class solutions that empower businesses and communities. 
               We offer tailored services in design, construction, electro-mechanical 
               works (HVAC, elevators, power systems), equipment supply, and expert maintenance.

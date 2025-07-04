@@ -8,7 +8,7 @@ export default function Faq () {
                     <h2 className="text-3xl md:text-5xl font-bold leading-9 text-blue-800 text-center">
                         Frequently asked questions
                     </h2>
-                    <div className="mt-6 border-t-4 border-gray-100 pt-10">
+                    <div className="mt-6 border-t-4 border-gray-500 pt-10">
                         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-8 md:gap-y-12">
                             <dl>
                                 <dt className="font-medium leading-6 text-gray-900 text-lg mt-4">What is the return policy for your
