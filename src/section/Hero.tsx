@@ -62,7 +62,7 @@ export default function Hero() {
                 tailored to your goals.
               </p>
           
-            <div className="flex justify-center md:justify-start gap-4">
+            <div className="flex flex-wrap justify-center md:flex-row md:items-start justify-center md:justify-start gap-4 w-full">
               <Link href="/quote">
               <Button variant="orange">Get a free Quote from us</Button>
               </Link>
