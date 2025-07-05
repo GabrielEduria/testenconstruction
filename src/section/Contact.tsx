@@ -12,7 +12,7 @@ export default function Contact() {
               src="/construction/images/Construction1.png"
               alt="Contact"
               fill
-              className="object-cover overflow-hidden"
+              className="object-cover overflow-hidden bg-opacity-50"
             />
           </div>
 
@@ -20,10 +20,8 @@ export default function Contact() {
           <div  
             id="contact" 
             className="md:absolute md:top-1/2 md:right-5 
-            md:translate-y-[-50%] 
-            mx-auto max-w-[400px] md:w-[500px] 
-            bg-gray-300 shadow-xl p-4 z-10
-            shadow-lg mt-8 md:mt-0 
+            md:translate-y-[-50%] md:w-[500px] bg-gray-300 
+            shadow-xl p-4 z-10 shadow-lg mx-2 mt-8 md:mt-0 
             rounded-lg scroll-mt-20"
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-orange-400">Contact us</h2>
