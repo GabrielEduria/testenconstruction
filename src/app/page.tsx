@@ -9,12 +9,12 @@ import {
    Contact, 
    Footer 
 } from '@/section';
-import Navbar from '@/components/layout/Navbar';
+import NavbarHome from '@/components/layout/NavbarHome';
 
 export default function Page() {
   return (
       <main className="relative h-auto w-auto overflow-hidden">
-        <Navbar />
+        <NavbarHome />
         <Hero />
         <About />
         <Vision />

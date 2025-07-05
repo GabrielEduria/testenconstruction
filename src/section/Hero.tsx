@@ -52,11 +52,11 @@ export default function Hero() {
       </div>
 
       <Motion className="relative z-10 min-h-screen flex flex-col justify-center items-center text-center md:text-left">
-        <div className="w-full sm:max-w-[1400px] p-10 pb-30 ">
-              <h1 className="text-5xl md:text-7xl font-bold text-white drop-shadow-lg pb-5">
+        <div className="w-full px-10 md:px-20 pb-30 ">
+              <h1 className="text-4xl md:text-8xl font-bold text-white drop-shadow-lg pb-2">
                 EN Construction
               </h1>
-              <p className="text-white text-sm sm:text-xl w-full md:w-[650px] pb-3 leading-9 ">
+              <p className="text-white text-sm sm:text-xl w-full md:w-[650px] pb-3 leading-relaxed md:leading-9 ">
                 Building spaces with purpose and precision. From design to delivery,
                 we offer complete construction and electro-mechanical solutions
                 tailored to your goals.
@@ -66,7 +66,7 @@ export default function Hero() {
               <Link href="/quote">
               <Button variant="orange">Get a free Quote from us</Button>
               </Link>
-              <Button variant="white" href="about">About us</Button>
+              <Button variant="white" href="/solar">Check out our Solar</Button>
             </div>
         </div>
      

@@ -27,7 +27,7 @@ export default function Footer() {
     <div id="Footer" className="w-fullmin-h-[40vh] p-4 bg-[#1e1d20] ">
       <Motion className="max-w-[1200px]  mx-auto ">
         <div className="flex flex-col md:flex-row md:gap-40 p-6">
-            <div className="flex flex-col gap-2 text-lg font-semibold pb-10 text-nowrap text-gray-300">
+            <div className="flex flex-col gap-2  w-full text-lg font-semibold pb-10 text-nowrap text-gray-300">
               <h2 className="text-lg md:text-2xl font-bold text-gray-300 pb-3">SOCIALS</h2>
                 <a
                   href="https://www.facebook.com/en.construction_/"
@@ -58,7 +58,7 @@ export default function Footer() {
                   <span>TikTok</span>
                 </a>
             </div>      
-            <div className="flex flex-col gap-2 space-y-2 text-lg font-semibold pb-10 text-gray-300">
+            <div className="flex flex-col gap-2  w-full space-y-2 text-lg font-semibold pb-10 text-gray-300">
              <h2 className="text-lg md:text-2xl text-gray-300 font-bold pb-3">PERMIT</h2>
                 <a
                   href="#"
@@ -79,7 +79,7 @@ export default function Footer() {
                   <span>DTI Permit</span>
                 </a>
             </div>
-              <div className="flex flex-col gap-2 space-y-2 text-lg font-semibold pb-10 text-gray-300">
+              <div className="flex flex-col gap-2 w-full space-y-2 text-lg font-semibold pb-10 text-gray-300">
              <h2 className="text-lg md:text-2xl text-gray-300 font-bold pb-3">OTHERS</h2>
                 <Link
                   href="/solar"
@@ -116,8 +116,8 @@ export default function Footer() {
               className="object-contain cursor-pointer"
             />
           </div>
-          <div className="text-left lg:text-right content-center">
-            <p className="text-gray-300 text-xl font-semibold">
+          <div className="text-left md:text-right content-center">
+            <p className="text-gray-300 text-base md:text-xl font-semibold">
               © 2024 EN Construction. All rights reserved.
             </p>
           </div>

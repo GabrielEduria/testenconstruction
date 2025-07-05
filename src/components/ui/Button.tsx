@@ -43,6 +43,7 @@ export default function Button({
     hover:shadow-[0.15em_0.15em_0_0_black] 
     cursor-pointer inline-block
     text-sm lg:text-xl
+    text-nowrap
   `;
 
   const variants = {

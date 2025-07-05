@@ -15,7 +15,7 @@ const links = [
   { name: "Contact", href: "#contact" }, 
 ];
 
-export default function Navbar() {
+export default function NavbarHome() {
   const [scrolled, setScrolled] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <nav
       className={`w-full h-[75px] lg:h-auto fixed top-0 left-0 z-50 transition-colors duration-400 ${
-        scrolled ? "bg-white backdrop-blur-sm" : "bg-transparent"
+        scrolled ? "bg-white" : "bg-transparent"
       }`}
     >
       <Motion className="w-full mx-auto flex items-center justify-between px-2 sm:px-5 lg:px-10 py-2">
