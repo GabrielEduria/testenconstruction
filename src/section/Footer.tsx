@@ -91,13 +91,13 @@ export default function Footer() {
                   <span>Check out our Solar Panel</span>
                 </Link>
                 <Link
-                   href="/solar"
+                   href="/quote"
                    target="_blank"
                    rel="noopener noreferrer"
                    className="flex items-center gap-3 w-fit hover:scale-105 text-base"
                 >
                   <FaBlogger className="w-5 h-5" />
-                  <span>Our Blogs</span>
+                  <span>Get a free Quote</span>
                   
                 </Link>
             </div>

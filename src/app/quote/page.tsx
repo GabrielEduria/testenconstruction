@@ -1,9 +1,12 @@
+import NavbarQuote from "@/components/layout/NavbarQuote";
+import Motion from "@/components/animation/Motion";
 export default function QuotePage () {
     return (
-        <div className="w-screen h-screen bg-blue-100">
-          <div className="pt-[100px]">
-             
+        <Motion>
+        <NavbarQuote />
+          <div className="w-screen h-screen bg-black">
+       
           </div>
-        </div>
+        </Motion>
     )
 }

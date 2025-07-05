@@ -7,18 +7,18 @@ export default function Contact() {
     <Motion>
       <section id="contact" className="w-full mx-auto py-24 md:px-10 scroll-mt-10">
         <div className="relative w-full max-w-[1200px] mx-auto">
-          <div className="relative w-full h-[400px] md:-translate-x-50 md:h-[600px]">
+          <div className="relative w-full md:w-3/4 h-[400px] md:h-[600px] md:-translate-x-50 md:pl-10">
             <Image 
               src="/construction/images/Construction1.png"
               alt="Contact"
               fill
-              className="object-cover"
+              className="object-cover overflow-hidden"
             />
           </div>
 
          
-          <div className="md:absolute md:top-1/2 md:right-5 md:translate-y-[-50%] md:w-[500px] bg-gray-300 shadow-xl p-6 z-10 shadow-lg mx-4 mt-8 md:mt-0 rounded-lg">
-            <h2 className="text-3xl lg:text-5xl font-bold text-orange-400">Contact us</h2>
+          <div className="md:absolute md:top-1/2 md:right-5 md:translate-y-[-50%] mx-auto w-[400px] md:w-[500px] bg-gray-300 shadow-xl p-6 z-10 shadow-lg mx-4 mt-8 md:mt-0 rounded-lg">
+            <h2 className="text-4xl lg:text-5xl font-bold text-orange-400">Contact us</h2>
             <h3 className="text-lg lg:text-xl font-bold text-blue-800">
               Let’s Turn Your Dreams into Reality
             </h3>
