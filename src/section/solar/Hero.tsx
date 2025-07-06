@@ -5,7 +5,7 @@ import Motion from "@/components/animation/Motion";
 
 export default function Hero () {
     return (
-    <div className="relative h-[80vh] w-full overflow-hidden flex items-center justify-center">
+    <div className="relative h-[90vh] w-full overflow-hidden flex items-center justify-center">
         <video
             autoPlay
             muted

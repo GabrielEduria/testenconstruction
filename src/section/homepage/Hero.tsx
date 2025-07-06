@@ -53,7 +53,7 @@ export default function Hero() {
 
       <Motion className="relative z-10 min-h-screen flex flex-col justify-center items-center text-center md:text-left">
         <div className="w-full px-10 lg:p-40">
-              <h1 className="text-4xl md:text-8xl font-bold text-white drop-shadow-lg pb-2">
+              <h1 className="text-4xl md:text-7xl font-bold text-white drop-shadow-lg pb-2">
                 EN Construction
               </h1>
               <p className="text-white text-sm sm:text-xl w-full md:w-[650px] pb-3 pl-1 leading-relaxed md:leading-9 ">
