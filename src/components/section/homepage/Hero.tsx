@@ -81,7 +81,7 @@ export default function Hero() {
                rounded border-t-4 border-[#FF9119]
                flex items-center justify-between gap-4"
             >
-              <div className="text-lg text-center font-semibold flex-1 truncate">
+              <div className="text-base md:text-lg text-center font-semibold flex-1 truncate">
                 {slides[currentIndex]?.title}
               </div>
               <div className="flex items-center gap-5 sm:gap-3 pb-1">

@@ -70,7 +70,7 @@ export const service: Service[] = [
     icon: FaHardHat 
   },
   { 
-    title: "Electro-Mechanical Equipment Maintenance", 
+    title: "Electro-Mechanical", 
     description: "Keep your home running smoothly with regular equipment maintenance.",
     icon: FaTools 
   },
@@ -80,16 +80,18 @@ export const service: Service[] = [
     icon: FaBoxOpen 
   },
   { 
-    title: "Ensureness of Optimal Performance and Reliability", 
+    title: "Performance and Reliability", 
     description: "Make your home systems efficient, reliable, and long-lasting.",
     icon: FaTachometerAlt 
   },
   { 
-    title: "Fast Installation of Electrical Panel Board", 
+    title: "Electrical Panel Board", 
     description: "Power your home quickly with expert panel board installation.",
     icon: FaBolt 
   }
 ];
+
+// SOLAR DATA
 type SolarEnergy = {
   title: string
   description: string
@@ -128,3 +130,64 @@ export const solarEnergy: SolarEnergy[] = [
       icon: ArrowRight
     },
 ]
+
+type SolarPlan = {
+  id: string;
+  name: string;
+  monthlyPrice: number;
+  annualPrice: number;
+  power: string;
+  coverage: string;
+  features: string[];
+  color: string;
+  popular?: boolean;
+};
+
+export const plans: SolarPlan[] = [
+  {
+    id: 'residential',
+    name: 'Home Solar Plan',
+    monthlyPrice: 8900,
+    annualPrice: 89000,
+    power: '2.4 - 3.2 kW',
+    coverage: '30-40% of household needs',
+    features: [
+      'Basic real-time monitoring',
+      '10-year product warranty',
+      'Professional installation',
+      'MERALCO net metering ready',
+    ],
+    color: 'bg-orange-500',
+  },
+  {
+    id: 'commercial',
+    name: 'Business Solar Plan',
+    monthlyPrice: 14900,
+    annualPrice: 149000,
+    power: '5.0 - 7.5 kW',
+    coverage: '60-80% of commercial usage',
+    features: [
+      'Advanced analytics dashboard',
+      '25-year panel warranty',
+      'Battery-ready system',
+      'Smart building integration',
+    ],
+    color: 'bg-blue-500',
+    popular: true,
+  },
+  {
+    id: 'industrial',
+    name: 'Enterprise Solar Plan',
+    monthlyPrice: 23900,
+    annualPrice: 239000,
+    power: '10 - 15 kW+',
+    coverage: '100%+ for industrial loads',
+    features: [
+      'Full EPC solar project delivery',
+      '25-year warranty (panels + inverters)',
+      'EV charging station integration',
+      'Tesla Powerwall / BESS support',
+    ],
+    color: 'bg-orange-400',
+  }
+];

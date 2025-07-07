@@ -1,7 +1,8 @@
 import { 
   Hero,
   WhyChooseUs,
-  Pricing
+  Pricing,
+  Footer
  } from "@/components/section/solar";
 
 export default function SolarPage () {
@@ -10,6 +11,7 @@ export default function SolarPage () {
         <Hero />
         <WhyChooseUs />
         <Pricing />
+        <Footer />
       </main>
       )
 }

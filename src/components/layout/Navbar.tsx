@@ -51,7 +51,7 @@ export default function Navbar() {
         { name: "Home", href: "/"},
         { name: "Solar", href: "#solar"},
         { name: "Services", href: "#services" },
-        { name: "Pricing", href: "#benefits" },
+        { name: "Pricing", href: "#pricing" },
         { name: "About", href: "#install" },  
       ]
     : isQuote
@@ -71,7 +71,7 @@ export default function Navbar() {
       <Motion className="w-full mx-auto flex items-center justify-between px-2 sm:px-5 lg:px-10 py-2">
         <div
           className={`text-2xl sm:text-4xl cursor-pointer transition-colors duration-300 ${
-            scrolled ? "text-black" : "text-white"
+            scrolled ? "text-black bg-backdrop-blur" : "text-white"
           }`}
           onClick={() => handleScrollTo("home")}
         >
@@ -88,7 +88,7 @@ export default function Navbar() {
         </div>
 
         <ul
-          className={`hidden lg:flex gap-10 items-center transition-colors  duration-300 font-semibold ${
+          className={`hidden lg:flex gap-12 items-center transition-colors  duration-300 font-semibold ${
             scrolled ? "text-black" : "text-white"
           }`}
         >
@@ -116,9 +116,9 @@ export default function Navbar() {
             </li>
           ))}
           <li>        
-              <Link href="/quote">
+              <Link href="/solar">
                <Button variant="orange">
-              <span className={` font-semibold text-lg ${scrolled ? "text-black after-bgblack" : "text-white after:bg-white"}`}>Get a quote from us
+              <span className={` font-semibold text-lg ${scrolled ? "text-black after-bgblack" : "text-white after:bg-white"}`}>Check Out Our Solar
                 </span>
               </Button>
           </Link>

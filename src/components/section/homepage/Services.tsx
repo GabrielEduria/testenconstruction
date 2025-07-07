@@ -14,24 +14,26 @@ export default function Services () {
                     </h2>
                 </div>
                 <div className="flex justify-center w-full">
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 p-4 gap-10 ">
+                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 p-4 gap-5 ">
                         {service.map((services, index) => {
                             const Icon = services.icon;
                             return (
-                                <div
-                                    key={index}
-                                    className="p-5 max-w-[350px] max-h-[400px] mx-auto flex flex-col text-center justify-start bg-gray-200 shadow-lg rounded-lg"
-                                    >                   
-                                    <div className="h-[120px] flex items-center justify-center">
-                                        <div className="w-20 h-20 rounded-full bg-orange-100 flex items-center justify-center">
-                                        <Icon className="text-orange-400 text-4xl block" />
-                                        </div>
-                                    </div>
-                                    <h2 className="text-lg font-semibold text-blue-800 mb-2">
-                                        {services.title}
-                                    </h2>
-                                    <p className="text-base text-gray-500">{services.description}</p>
-                                </div>
+                <div
+                    key={index}
+                    className="flex flex-col justify-between rounded-lg border bg-card text-card-foreground 
+                    shadow-sm border-gray-100 hover:shadow-lg transition-all duration-300 p-4"
+                    >
+                    <div className="flex flex-col text-center content-center pt-5 space-y-1 p-6">
+                        <Icon className="h-10 w-10 mx-auto text-orange-500 block" />
+                        <h2 className="text-lg font-semibold text-blue-800 leading-tight mb-2 min-h-[48px]">
+                        {services.title}
+                        </h2>
+                    </div>
+                    
+                    <p className="text-sm text-gray-500 text-center mt-auto">
+                        {services.description}
+                    </p>
+                </div>
                         );
                         })}
                     </div>

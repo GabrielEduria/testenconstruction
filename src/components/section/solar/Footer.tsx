@@ -1,9 +1,6 @@
-'use client';
-
-import Motion from "../../animation/Motion";
 import Image from "next/image";
+import Motion from "@/components/animation/Motion";
 import Link from "next/link";
-
 import {
   FaFacebook,
   FaInstagram,
@@ -13,18 +10,9 @@ import {
   FaBlogger
 } from "react-icons/fa";
 
-
-export default function Footer() {
-
-  const handleScrollTo = (id: string) => {
-     const element = document.getElementById(id);
-     if (element) {
-      element.scrollIntoView({ behavior: "smooth"})
-     }
-  };
-
-  return (
-    <div id="Footer" className="w-fullmin-h-[40vh] p-4 bg-[#1e1d20] ">
+export default function Footer () {
+    return (
+         <div id="Footer" className="w-fullmin-h-[40vh] p-4 bg-[#1e1d20] ">
       <Motion className="max-w-[1200px]  mx-auto ">
         <div className="grid grid-cols-1 md:grid-cols-3 p-6">
             <div className="flex flex-col gap-2 font-semibold pb-10 text-nowrap text-gray-300">
@@ -102,7 +90,7 @@ export default function Footer() {
        <div className="flex flex-col md:flex-row justify-between w-full text-nowrap lg:p-6 pb-10 gap-4">
           <div
             className="cursor-pointer"
-            onClick={() => handleScrollTo("home")}
+           
           >
             <Image
               src="/images/en-construction.png"
@@ -120,5 +108,5 @@ export default function Footer() {
         </div>
       </Motion>
     </div>
-  );
+    )
 }
