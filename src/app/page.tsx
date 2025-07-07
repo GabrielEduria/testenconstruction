@@ -6,9 +6,8 @@ import {
    Services,
    Projects,
    Faq,
-   Contact, 
    Footer 
-} from '@/section/homepage';
+} from '@/components/section/homepage';
 
 
 export default function Page() {
@@ -21,7 +20,6 @@ export default function Page() {
         <Services />
         <Projects />
         <Faq />
-        <Contact />
         <Footer />
       </main>
   );

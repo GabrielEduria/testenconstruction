@@ -7,6 +7,15 @@ import {
   FaBolt
 } from "react-icons/fa";
 
+import { 
+    Sun,
+    Zap,
+    Shield,
+    Check,
+    Star,
+    ArrowRight
+} from "lucide-react";
+
 
 export interface Project {
   title: string;
@@ -81,4 +90,41 @@ export const service: Service[] = [
     icon: FaBolt 
   }
 ];
+type SolarEnergy = {
+  title: string
+  description: string
+  icon: React.ElementType
+}
 
+export const solarEnergy: SolarEnergy[] = [
+    {
+      title: "Clean Energy",
+      description: "100% renewable energy from the sun, reducing your carbon footprint significantly.",  
+      icon: Sun
+    },
+    {
+      title: "Lower Bills",
+      description: "Reduce your electricity bills by up to 90% with our high-efficiency solar panels.",  
+      icon: Zap
+    },
+    {
+      title: "3-Year Warranty",
+      description: "Industry-leading warranty with guaranteed performance and peace of mind.",  
+      icon: Shield
+    },
+    {
+      title: "Easy Installation",
+      description: "Professional installation with minimal disruption to your daily routine.",  
+      icon: Check
+    },
+    {
+      title: "Tax Incentives",
+      description: "Take advantage of tax credits for solar installations.",  
+      icon: Star
+    },
+    {
+      title: "Increase Home Value",
+      description: "Solar panels can increase your home's value by an average of 10%.",  
+      icon: ArrowRight
+    },
+]

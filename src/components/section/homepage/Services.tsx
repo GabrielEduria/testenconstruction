@@ -1,4 +1,4 @@
-import Motion from "../../components/animation/Motion"
+import Motion from "../../animation/Motion"
 import { service } from '@/data';
 
 export default function Services () {
@@ -20,7 +20,7 @@ export default function Services () {
                             return (
                                 <div
                                     key={index}
-                                    className="p-5 max-w-[350px] max-h-[400px] mx-auto flex flex-col items-center text-center justify-start bg-gray-200 shadow-lg rounded-lg"
+                                    className="p-5 max-w-[350px] max-h-[400px] mx-auto flex flex-col text-center justify-start bg-gray-200 shadow-lg rounded-lg"
                                     >                   
                                     <div className="h-[120px] flex items-center justify-center">
                                         <div className="w-20 h-20 rounded-full bg-orange-100 flex items-center justify-center">

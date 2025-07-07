@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Motion from "../animation/Motion";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-
+import Button from "../ui/Button";
 
 
 export default function Navbar() {
@@ -17,7 +17,7 @@ export default function Navbar() {
 
   const isHome = pathname === "/";
   const isSolar = pathname.startsWith("/solar");
-
+  const isQuote = pathname.startsWith("/quote");
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -44,14 +44,20 @@ export default function Navbar() {
         { name: "About", href: "#about" },
         { name: "Services", href: "#services" },
         { name: "Projects", href: "#projects" },
-        { name: "Contact", href: "#contact" },
+        { name: "FAQs", href: "#faq"}
       ]
     : isSolar
     ? [
         { name: "Home", href: "/"},
-        { name: "Why Solar", href: "#why" },
-        { name: "Benefits", href: "#benefits" },
-        { name: "Installation", href: "#install" },
+        { name: "Solar", href: "#solar"},
+        { name: "Services", href: "#services" },
+        { name: "Pricing", href: "#benefits" },
+        { name: "About", href: "#install" },  
+      ]
+    : isQuote
+    ? [
+        { name: "Home", href: "/"},
+        { name: "Solar", href: "/solar" }, 
       ]
     : [];
 
@@ -64,7 +70,7 @@ export default function Navbar() {
     >
       <Motion className="w-full mx-auto flex items-center justify-between px-2 sm:px-5 lg:px-10 py-2">
         <div
-          className={`text-2xl sm:text-4xl font-bold cursor-pointer transition-colors duration-300 ${
+          className={`text-2xl sm:text-4xl cursor-pointer transition-colors duration-300 ${
             scrolled ? "text-black" : "text-white"
           }`}
           onClick={() => handleScrollTo("home")}
@@ -82,7 +88,7 @@ export default function Navbar() {
         </div>
 
         <ul
-          className={`hidden lg:flex gap-20 transition-colors duration-300 font-semibold ${
+          className={`hidden lg:flex gap-10 items-center transition-colors  duration-300 font-semibold ${
             scrolled ? "text-black" : "text-white"
           }`}
         >
@@ -91,7 +97,7 @@ export default function Navbar() {
               {link.href.startsWith("#") ? (
                 <span
                   onClick={() => handleScrollTo(link.href.replace("#", ""))}
-                  className={`relative text-lg cursor-pointer after:absolute after:h-0.5 after:w-0 duration-500 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 ${
+                  className={`relative text-lg cursor-pointer flex content-center after:absolute after:h-0.5 after:w-0 duration-500 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 content-center ${
                     scrolled ? "text-black after:bg-black" : "text-white after:bg-white"
                   }`}
                 >
@@ -100,7 +106,7 @@ export default function Navbar() {
               ) : (
                 <Link
                   href={link.href}
-                  className={`relative text-lg cursor-pointer after:absolute after:h-0.5 after:w-0 duration-500 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 ${
+                  className={`relative content-center text-lg cursor-pointer after:absolute after:h-0.5 after:w-0 duration-500 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 ${
                     scrolled ? "text-black after:bg-black" : "text-white after:bg-white"
                   }`}
                 >
@@ -109,6 +115,15 @@ export default function Navbar() {
               )}
             </li>
           ))}
+          <li>        
+              <Link href="/quote">
+               <Button variant="orange">
+              <span className={` font-semibold text-lg ${scrolled ? "text-black after-bgblack" : "text-white after:bg-white"}`}>Get a quote from us
+                </span>
+              </Button>
+          </Link>
+          </li>
+
         </ul>
 
         <div className="block lg:hidden z-50">
@@ -157,7 +172,11 @@ export default function Navbar() {
                     <hr className="border border-gray-200 mb-3" />
                   </li>
                 ))}
-              </ul>
+                  <Link href="/quote">
+                  <span className="text-lg text-gray-800 pt-3">Quote</span>
+                  <hr className="border border-gray-200 mb-3" />
+                  </Link>
+                </ul>
             </SheetContent>
           </Sheet>
         </div>

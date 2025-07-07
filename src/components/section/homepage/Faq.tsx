@@ -3,7 +3,7 @@ import Motion from "@/components/animation/Motion";
 export default function Faq () {
     return (
         <Motion>
-            <div className="bg-gray-200">
+            <div id="faq" className="bg-gray-200 md:scroll-mt-20">
                 <div className="max-w-screen-xl mx-auto pt-20 sm:pt-16 sm:pb-20 px-4 sm:px-6 lg:pt-20 lg:pb-28 lg:px-8">
                     <h2 className="text-3xl md:text-5xl font-bold leading-9 text-blue-800 text-center">
                         Frequently asked questions

@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Contact() {
   return (
     <Motion>
-      <section className="w-full mx-auto md:py-24 md:px-10">
+      <section className="w-full h-screen mx-auto md:py-24 md:px-10 bg-black">
         <div className="relative w-full max-w-[1200px] mx-auto">
           <div className="relative w-full h-[400px] md:h-[800px] md:-translate-x-80 overflow-hidden">
             <Image 

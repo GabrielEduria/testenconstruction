@@ -1,6 +1,6 @@
 'use client';
 
-import Motion from "../../components/animation/Motion";
+import Motion from "../../animation/Motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -26,8 +26,8 @@ export default function Footer() {
   return (
     <div id="Footer" className="w-fullmin-h-[40vh] p-4 bg-[#1e1d20] ">
       <Motion className="max-w-[1200px]  mx-auto ">
-        <div className="flex flex-col md:flex-row md:gap-40 p-6">
-            <div className="flex flex-col gap-2  w-full text-lg font-semibold pb-10 text-nowrap text-gray-300">
+        <div className="grid grid-cols-1 md:grid-cols-3 p-6">
+            <div className="flex flex-col gap-2 font-semibold pb-10 text-nowrap text-gray-300">
               <h2 className="text-lg md:text-2xl font-bold text-gray-300 pb-3">SOCIALS</h2>
                 <a
                   href="https://www.facebook.com/en.construction_/"

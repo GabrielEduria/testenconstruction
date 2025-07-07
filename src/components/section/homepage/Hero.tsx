@@ -7,8 +7,8 @@ import { Autoplay, EffectFade, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-import Button from "../../components/ui/Button";
-import Motion from "../../components/animation/Motion";
+import Button from "../../ui/Button";
+import Motion from "../../animation/Motion";
 import Link from "next/link";
 
 const slides = [
@@ -52,8 +52,8 @@ export default function Hero() {
       </div>
 
       <Motion className="relative z-10 min-h-screen flex flex-col justify-center items-center text-center md:text-left">
-        <div className="w-full px-10 lg:p-40">
-              <h1 className="text-4xl md:text-7xl font-bold text-white drop-shadow-lg pb-2">
+        <div className="w-full h-full p-5 md:pt-20 lg:px-30 z-10">
+              <h1 className="text-4xl md:text-7xl font-bold text-white drop-shadow-lg tracking-tight max-w-[700] pb-4">
                 EN Construction
               </h1>
               <p className="text-white text-sm sm:text-xl w-full md:w-[650px] pb-3 pl-1 leading-relaxed md:leading-9 ">
@@ -66,8 +66,9 @@ export default function Hero() {
               <Link href="/solar">
               <Button variant="orange">Check out our Solar</Button>
               </Link>
-              <Button variant="white" href="about">Read More</Button>
+              <Button variant="white" href="about">Learn More</Button>
             </div>
+
         </div>
      
         <div

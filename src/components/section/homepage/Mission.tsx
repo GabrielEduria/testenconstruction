@@ -1,4 +1,4 @@
-import Motion from "../../components/animation/Motion";
+import Motion from "../../animation/Motion";
 import Image from "next/image";
 import { FaHardHat } from "react-icons/fa"; 
 
