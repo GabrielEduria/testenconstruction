@@ -2,8 +2,8 @@ import {
   Hero,
   WhyChooseUs,
   Pricing,
-  Footer
  } from "@/components/section/solar";
+import Footer from "@/components/layout/Footer";
 
 export default function SolarPage () {
       return (

@@ -64,9 +64,11 @@ export default function Hero() {
           
             <div className="flex flex-wrap justify-center md:flex-row md:items-start justify-center md:justify-start gap-4 pl-1 w-full">
               <Link href="/solar">
-              <Button variant="orange">Check out our Solar</Button>
+              <Button variant="orange">Go Solar Now</Button>
               </Link>
-              <Button variant="white" href="about">Learn More</Button>
+              <Link href="/quote">
+              <Button variant="white" href="/quote">Get a Quote from us</Button>
+              </Link>
             </div>
 
         </div>

@@ -4,10 +4,10 @@ import Motion from "../../animation/Motion";
 export default function WhyChooseUs () {
     return (
         <Motion>
-          <div id="services" className="relative w-full min-h-screen py-20 mx-auto px-4">
+          <div id="services" className="relative w-full py-20 mx-auto px-4">
              <div className="container mx-auto px-4">
                 <div className="text-center mb-16 px-4 ">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Solar Energy?</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Why Choose Solar Energy?</h2>
                   <p className="text-lg text-gray-500 max-w-2xl mx-auto">Experience the benefits of clean,
                       renewable energy with our 
                       state-of-the-art solar solutions.

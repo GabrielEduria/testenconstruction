@@ -6,9 +6,8 @@ import {
    Services,
    Projects,
    Faq,
-   Footer 
 } from '@/components/section/homepage';
-
+import Footer from '@/components/layout/Footer';
 
 export default function Page() {
   return (

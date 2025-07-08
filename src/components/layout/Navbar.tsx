@@ -9,7 +9,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Button from "../ui/Button";
 
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -18,6 +17,7 @@ export default function Navbar() {
   const isHome = pathname === "/";
   const isSolar = pathname.startsWith("/solar");
   const isQuote = pathname.startsWith("/quote");
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -37,32 +37,33 @@ export default function Navbar() {
     }
   };
 
-  
   const links = isHome
     ? [
         { name: "Home", href: "#home" },
         { name: "About", href: "#about" },
         { name: "Services", href: "#services" },
         { name: "Projects", href: "#projects" },
-        { name: "FAQs", href: "#faq"}
+        { name: "FAQs", href: "#faq" },
+        { button: "Go Solar", href: "/solar" },
       ]
     : isSolar
     ? [
-        { name: "Home", href: "/"},
-        { name: "Solar", href: "#solar"},
+        { name: "Solar", href: "#solar" },
         { name: "Services", href: "#services" },
         { name: "Pricing", href: "#pricing" },
-        { name: "About", href: "#install" },  
+        { button: "Get A Quote From Us", href: "/quote" },
       ]
     : isQuote
     ? [
-        { name: "Home", href: "/"},
-        { name: "Solar", href: "/solar" }, 
+        { name: "Quote", href: "#hero" },
+        { name: "Contact", href: "#contact" },
+        { name: "About", href: "#about"},
+        { name: "Services", href: "#services"},
+        { button: "Home", href: "/" },
       ]
     : [];
 
   return (
-
     <nav
       className={`w-full h-[75px] lg:h-auto fixed top-0 left-0 z-50 transition-colors duration-400 ${
         scrolled ? "bg-white" : "bg-transparent"
@@ -88,13 +89,21 @@ export default function Navbar() {
         </div>
 
         <ul
-          className={`hidden lg:flex gap-12 items-center transition-colors  duration-300 font-semibold ${
+          className={`hidden lg:flex gap-12 items-center transition-colors duration-300 font-semibold ${
             scrolled ? "text-black" : "text-white"
           }`}
         >
           {links.map((link) => (
-            <li key={link.name}>
-              {link.href.startsWith("#") ? (
+            <li key={`${link.name ?? link.button}-${link.href}`}>
+              {link.button ? (
+                <Link href={link.href}>
+                  <Button variant="orange">
+                    <span className="font-bold">
+                      {link.button}
+                    </span>
+                  </Button>
+                </Link>
+              ) : link.href.startsWith("#") ? (
                 <span
                   onClick={() => handleScrollTo(link.href.replace("#", ""))}
                   className={`relative text-lg cursor-pointer flex content-center after:absolute after:h-0.5 after:w-0 duration-500 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 content-center ${
@@ -115,15 +124,6 @@ export default function Navbar() {
               )}
             </li>
           ))}
-          <li>        
-              <Link href="/solar">
-               <Button variant="orange">
-              <span className={` font-semibold text-lg ${scrolled ? "text-black after-bgblack" : "text-white after:bg-white"}`}>Check Out Our Solar
-                </span>
-              </Button>
-          </Link>
-          </li>
-
         </ul>
 
         <div className="block lg:hidden z-50">
@@ -149,7 +149,7 @@ export default function Navbar() {
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <ul className="flex flex-col gap-8 mt-10">
                 {links.map((link) => (
-                  <li key={link.name}>
+                  <li key={`${link.name ?? link.button}-${link.href}`}>
                     {link.href.startsWith("#") ? (
                       <span
                         onClick={() => {
@@ -166,17 +166,13 @@ export default function Navbar() {
                         onClick={() => setIsSheetOpen(false)}
                         className="text-lg text-gray-800 hover:text-black cursor-pointer"
                       >
-                        {link.name}
+                        {link.name ?? link.button}
                       </Link>
                     )}
                     <hr className="border border-gray-200 mb-3" />
                   </li>
                 ))}
-                  <Link href="/quote">
-                  <span className="text-lg text-gray-800 pt-3">Quote</span>
-                  <hr className="border border-gray-200 mb-3" />
-                  </Link>
-                </ul>
+              </ul>
             </SheetContent>
           </Sheet>
         </div>

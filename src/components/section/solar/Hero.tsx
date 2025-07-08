@@ -19,7 +19,7 @@ export default function Hero () {
             <source src="/videos/solarvideo.mp4" type="video/mp4" />
              Your browser does not support the video tag.
         </video>
-     <div className="absolute inset-0 bg-black/60 -z-5" />
+         <div className="absolute inset-0 bg-black/60 -z-5" />
         <Motion>
             <div className=" h-full p-4 md:pt-10 lg:px-30 z-10 text-center md:text-left">
                 <h1 className="text-4xl md:text-7xl font-bold text-white drop-shadow-lg md:w-[700] pb-4">
@@ -31,7 +31,7 @@ export default function Hero () {
                     Join thousands of homeowners who&apos;ve made the switch to clean, renewable solar energy. Save money, reduce your carbon footprint, and gain energy independence.
                 </p>
                  <div className="flex flex-wrap justify-center md:flex-row md:items-start justify-center md:justify-start gap-4 pl-1 w-full">
-                    <Link href="/solar">
+                    <Link href="/quote">
                     <Button variant="orange">Get a Free Quote</Button>
                     </Link>
                     <Button variant="white" href="services">Learn More</Button>

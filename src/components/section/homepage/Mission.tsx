@@ -4,7 +4,7 @@ import { FaHardHat } from "react-icons/fa";
 
 export default function Mission() {
   return (
-     <section id="about" className="w-full min-h-[40vh] max-w-[1200px]  mx-auto py-10 scroll-mt-20 md:scroll-mt-10">
+     <section id="about" className="w-full py-20 max-w-[1200px]  mx-auto py-10 scroll-mt-20 md:scroll-mt-10">
       <Motion>
          <div className="flex flex-col-reverse md:flex-row w-full px-4 gap-10">
           <div className="w-full text-center md:text-left content-center">

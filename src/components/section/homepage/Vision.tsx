@@ -4,7 +4,7 @@ import { FaEye } from "react-icons/fa";
 
 export default function Vision() {
   return (
-    <section id="vision" className="w-full min-h-[40vh]  py-5 md:py-10 scroll-mt-20">
+    <section id="vision" className="w-full py-20 scroll-mt-20">
       <Motion>
         <div className="flex flex-col md:flex-row max-w-[1200px] mx-auto w-full p-4 gap-10">
           <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] overflow-hidden rounded-lg">

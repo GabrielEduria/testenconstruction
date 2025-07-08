@@ -8,7 +8,7 @@ export default function Pricing() {
         <div className="max-w-6xl mx-auto">
 
           <div className="text-center mb-12">
-            <div className="inline-flex items-center px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-semibold mb-3">
+            <div className="inline-flex items-center px-3 py-1 bg-orange-100 text-orange-500 rounded-full text-sm font-semibold mb-3">
               Net Metering Available - Sell Back to Grid
             </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-3">
@@ -35,7 +35,7 @@ export default function Pricing() {
               >
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                    <div className="bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-bold">
                       Most Popular
                     </div>
                   </div>
@@ -62,7 +62,7 @@ export default function Pricing() {
                   <button
                     className={`w-full py-3 px-4 rounded-lg font-semibold transition-all cursor-pointer ${
                       plan.popular
-                        ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white hover:from-orange-600 hover:to-red-600'
+                        ? ' bg-orange-500 hover:bg-orange-400 text-white hover:from-orange-400 hover:to-red-600'
                         : 'bg-gray-900 text-white hover:bg-gray-800'
                     }`}
                   >
