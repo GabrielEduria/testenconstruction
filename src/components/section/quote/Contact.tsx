@@ -25,7 +25,7 @@ export default function Contact () {
       const [isSubmitting, setIsSubmitting] = useState(false);
       const [isSubmitted, setIsSubmitted] = useState(false);
     
-      const handleInputChange = (e: any) => {
+      const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({
           ...prev,
@@ -33,7 +33,8 @@ export default function Contact () {
         }));
       };
     
-      const handleSubmit = async (e) => {
+      const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         setIsSubmitting(true);
         setTimeout(() => {
           setIsSubmitting(false);
@@ -341,33 +342,35 @@ export default function Contact () {
                   </div>
 
                   {/* Submit Button */}
+                  
                   <div className="pt-4">
-                    <button
-                      type="button"
-                      onClick={handleSubmit}
-                      disabled={isSubmitting}
-                      className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 cursor-pointer ${
-                        isSubmitting
-                          ? 'bg-gray-400 cursor-not-allowed'
-                          : isSubmitted
-                          ? 'bg-green-500 hover:bg-green-600'
-                          : 'bg-orange-500 hover:bg-orange-600'
-                      } shadow-lg hover:shadow-xl`}
-                    >
-                      {isSubmitting ? (
-                        <span className="flex items-center justify-center">
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Processing Your Request...
-                        </span>
-                      ) : isSubmitted ? (
-                        <span className="flex items-center justify-center">
-                          <CheckCircle className="h-5 w-5 mr-2" />
-                          Quote Request Submitted Successfully!
-                        </span>
-                      ) : (
-                        'Get My FREE Solar Quote'
-                      )}
-                    </button>
+                    <form onSubmit={handleSubmit}>
+                      <button
+                        type="button"
+                        disabled={isSubmitting}
+                        className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-200 cursor-pointer ${
+                          isSubmitting
+                            ? 'bg-gray-400 cursor-not-allowed'
+                            : isSubmitted
+                            ? 'bg-green-500 hover:bg-green-600'
+                            : 'bg-orange-500 hover:bg-orange-600'
+                        } shadow-lg hover:shadow-xl`}
+                      >
+                        {isSubmitting ? (
+                          <span className="flex items-center justify-center">
+                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                            Processing Your Request...
+                          </span>
+                        ) : isSubmitted ? (
+                          <span className="flex items-center justify-center">
+                            <CheckCircle className="h-5 w-5 mr-2" />
+                            Quote Request Submitted Successfully!
+                          </span>
+                        ) : (
+                          'Get My FREE Solar Quote'
+                        )}
+                      </button>
+                    </form>
                   </div>
                 </div>
               </div>

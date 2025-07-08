@@ -1,5 +1,6 @@
-'use client'
-import { useState, MouseEvent, useCallback, ReactNode } from "react";
+'use client';
+
+import { useState, useMemo, MouseEvent, ReactNode } from "react";
 
 function throttle(
   func: (e: MouseEvent<HTMLDivElement>) => void,
@@ -19,11 +20,11 @@ interface TiltEffectProps {
   className?: string;
 }
 
-export default function TiltEffect({children, className = "" }: TiltEffectProps) {
-  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+export default function TiltEffect({ children, className = "" }: TiltEffectProps) {
+  const [rotate, setRotate] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
-  const onMouseMove = useCallback(
-    throttle((e: MouseEvent<HTMLDivElement>) => {
+  const throttledMouseMove = useMemo(() => {
+    return throttle((e: MouseEvent<HTMLDivElement>) => {
       const card = e.currentTarget;
       const box = card.getBoundingClientRect();
       const x = e.clientX - box.left;
@@ -33,9 +34,8 @@ export default function TiltEffect({children, className = "" }: TiltEffectProps)
       const rotateX = (y - centerY) / 7;
       const rotateY = (centerX - x) / 7;
       setRotate({ x: rotateX, y: rotateY });
-    }, 100),
-    []
-  );
+    }, 100);
+  }, []);
 
   const onMouseLeave = () => {
     setRotate({ x: 0, y: 0 });
@@ -44,7 +44,7 @@ export default function TiltEffect({children, className = "" }: TiltEffectProps)
   return (
     <div
       className={`${className} transition-transform will-change-transform`}
-      onMouseMove={onMouseMove}
+      onMouseMove={throttledMouseMove}
       onMouseLeave={onMouseLeave}
       style={{
         transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
