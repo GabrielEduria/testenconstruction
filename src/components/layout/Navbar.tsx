@@ -48,14 +48,14 @@ export default function Navbar() {
       ]
     : isSolar
     ? [
-        { name: "Solar", href: "#solar" },
+        { name: "About", href: "#solar" },
         { name: "Services", href: "#services" },
         { name: "Pricing", href: "#pricing" },
         { button: "Get A Quote From Us", href: "/quote" },
       ]
     : isQuote
     ? [
-        { name: "Quote", href: "#hero" },
+        { name: "About", href: "#hero" },
         { name: "Contact", href: "#contact" },
         { name: "About", href: "#about"},
         { name: "Services", href: "#services"},
