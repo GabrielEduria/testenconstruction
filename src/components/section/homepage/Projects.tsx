@@ -29,7 +29,7 @@ export default function Projects() {
                           />
                       </TiltEffect>
                       <div className="flex flex-col pt-2 flex-grow mx-auto">     
-                        <h2 className="text-2xl md:text-2xl  text-center md:text-left font-bold text-blue-800 ">
+                        <h2 className="text-2xl md:text-2xl  text-center md:text-left font-bold text-white ">
                             {project.title}
                         </h2>
                         <p className="pb-2 text-lg text-center md:text-left font-bold text-orange-400">

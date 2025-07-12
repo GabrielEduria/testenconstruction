@@ -17,7 +17,7 @@ export default function Hero () {
                 </div>
             </div>
             <Motion>
-                <div className="relative max-w-4xl mx-auto text-center">
+                <div className="relative max-w-4xl mx-auto text-center px-4">
                
                         <h1 className="text-4xl md:text-7xl  font-bold text-white mb-6">
                             Get Your Solar Quote
