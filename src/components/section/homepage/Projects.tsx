@@ -19,7 +19,7 @@ export default function Projects() {
                       key={index}
                       className="rounded-2xl flex flex-col justify-center content-center transform transition duration-300 hover:scale-[1.02]"
                     >
-                      <TiltEffect className="w-full max-w-[350] overflow-hidden block rounded-t-2xl flex justify-center md:justify-start">
+                      <TiltEffect className="w-full max-w-[400] overflow-hidden block rounded-t-2xl flex justify-center md:justify-start">
                           <Image 
                             src={project.images}
                             alt={`Project Image ${project.title}`}
