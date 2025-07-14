@@ -64,7 +64,7 @@ export default function Contact () {
       };
     return (
         <Motion>
-          <div id="contact" className="py-16 px-4 sm:px-6 lg:px-8 md:scroll-mt-20">
+          <div id="quote" className="py-16 px-4 sm:px-6 lg:px-8 md:scroll-mt-20">
             <div className="max-w-4xl mx-auto">
               <div className="bg-white rounded-lg shadow-lg border">
                 <div className="bg-blue-800 text-center md:text-left px-2 md:px-8 py-6 rounded-t-lg">

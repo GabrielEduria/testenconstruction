@@ -4,7 +4,7 @@ import Motion from "@/components/animation/Motion";
 export default function AdditionalInfo () {
     return (
         <Motion>
-            <div id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-white md:scroll-mt-20">
+            <div id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-white md:scroll-mt-20">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">
