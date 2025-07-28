@@ -101,7 +101,7 @@ export default function Footer() {
        <hr className="mx-auto border-gray-500 w-auto pb-3"></hr>
        <div className="flex flex-col md:flex-row justify-between w-full text-nowrap lg:p-6 pb-10 gap-4">
           <div
-            className="cursor-pointer"
+            className="cursor-pointer flex justify-center"
             onClick={() => handleScrollTo("home")}
           >
             <Image
@@ -109,12 +109,15 @@ export default function Footer() {
               alt="EN Construction Logo"
               height={300}
               width={300}
-              className="object-contain cursor-pointer"
+              className="object-contain cursor-pointer content-center"
             />
           </div>
-          <div className="text-left md:text-right content-center text-gray-300 px-4 md:px-6 text-base font-semibold">
-            <p className="block md:inline"> © 2024 EN Construction. </p>
-            <p className="block md:inline">All rights reserved.</p>
+          <div className="content-center text-left md:text-right 
+                          text-gray-300 px-4 md:px-6 text-base 
+                          font-semibold"
+          >
+            <p className="block md:inline text-center"> © 2024 EN Construction. </p>
+            <p className="block md:inline text-center">All rights reserved.</p>
           </div>
         </div>
       </Motion>

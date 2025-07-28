@@ -14,7 +14,7 @@ export default function Faq () {
                                 <dt className="font-medium leading-6 text-gray-900 text-lg mt-4">What is the return policy for your
                                     products?</dt>
                                 <dd className="mt-4">
-                                    <p className="text-base text-gray-500">
+                                    <p className="text-sm md:text-base text-gray-500">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                                     </p>
                                 </dd>

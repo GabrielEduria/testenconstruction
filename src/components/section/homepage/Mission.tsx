@@ -4,10 +4,10 @@ import { FaHardHat } from "react-icons/fa";
 
 export default function Mission() {
   return (
-     <section id="about" className="w-full py-20 max-w-[1200px]  mx-auto py-10 scroll-mt-20 md:scroll-mt-10">
+     <section id="about" className="w-full py-5 lg:py-2 max-w-[1200px]  mx-auto py-10 scroll-mt-20 md:scroll-mt-10">
       <Motion>
-         <div className="flex flex-col-reverse md:flex-row w-full px-4 gap-10">
-          <div className="w-full text-center md:text-left content-center">
+         <div className="flex flex-col-reverse md:flex-row w-full gap-10">
+          <div className="w-full text-center md:text-left content-center p-5">
             <h1 className="text-2xl lg:text-3xl font-bold text-orange-400">
               Our Mission
             </h1>
@@ -26,12 +26,12 @@ export default function Mission() {
               <div className="w-10 h-[2px] bg-orange-400"></div>
             </div>
           </div>
-          <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] overflow-hidden rounded-lg">
+          <div className="relative w-full h-[250px] sm:h-[350px] md:h-[400px] overflow-hidden">
             <Image
               src="/images/background/Construction1.png"
               alt="Mission Image"
               fill
-              className="object-cover transition-transform duration-500 ease-in-out hover:scale-110 rounded-lg"
+              className="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
             />
           </div>
         </div>
