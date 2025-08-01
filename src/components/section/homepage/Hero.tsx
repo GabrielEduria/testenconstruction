@@ -54,12 +54,11 @@ export default function Hero() {
       <Motion className="relative z-10 min-h-screen flex flex-col justify-center items-center text-center md:text-left">
         <div className="w-full h-full p-5 md:pt-20 lg:px-30 z-10">
               <h1 className="text-4xl md:text-7xl font-bold text-white drop-shadow-lg tracking-tight max-w-[700] pb-4">
-                EN Construction
+                Construction
               </h1>
               <p className="text-white text-sm sm:text-xl w-full md:w-[650px] pb-3 pl-1 leading-relaxed md:leading-9 ">
-                Building spaces with purpose and precision. From design to delivery,
-                we offer complete construction and electro-mechanical solutions
-                tailored to your goals.
+                
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
               </p>
           
             <div className="flex flex-wrap justify-center md:flex-row md:items-start justify-center md:justify-start gap-4 pl-1 w-full">

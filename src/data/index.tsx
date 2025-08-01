@@ -26,25 +26,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "San Lorenzo Ruiz General Hospital",
+    title: "Project 1",
     description: "Includes the delivery, installation, and organized wire dressing of a panelboard to ensure safe and efficient power distribution within the hospital.",
     type: "Institutional Project",
     images: "/images/projects/encproject1.png",
   },
   {
-    title: "Alveo High Park Tower 1 and 2",
+    title: "Project 2",
     description: "Supply and professional installation of the meter center for reliable and efficient electrical distribution.",
     type: "Condominium Project",
     images: "/images/projects/encproject2.png",
   },
   {
-    title: "San Lorenzo Ruiz General Hospital",
+    title: "Project 3",
     description: "Supply and installation of a first private 3-tandem pole setup with three 333 kVA transformer attachments, including testing and commissioning to ensure full operational reliability.",
     type: "Institutional Project",
     images: "/images/projects/encproject3.png"
   },
   {
-    title: "Two story bedroom House",
+    title: "Project 4",
     description: "Complete interior and exterior renovation of a two-bedroom townhouse, covering structural improvements, aesthetic upgrades, and functional enhancements to elevate overall living quality.",
     type: "Residential Project",
     images: "/images/projects/encproject4.png"

@@ -27,6 +27,7 @@ export default function Projects() {
                             height={300}
                             className="object-contain w-full h-auto rounded-lg"
                           />
+                            <div className="absolute inset-0 bg-white opacity-100 z-10"></div>      
                       </TiltEffect>
                       <div className="flex flex-col pt-2 flex-grow mx-auto">     
                         <h2 className="text-2xl md:text-2xl  text-center md:text-left font-bold text-white ">

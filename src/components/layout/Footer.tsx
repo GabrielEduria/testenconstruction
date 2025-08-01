@@ -30,18 +30,18 @@ export default function Footer() {
             <div className="flex flex-col gap-2 font-semibold pb-10 text-nowrap text-gray-300">
               <h2 className="text-lg md:text-2xl font-bold text-gray-300 pb-3">SOCIALS</h2>
                 <a
-                  href="https://www.facebook.com/en.construction_/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                //  href="https://www.facebook.com/en.construction_/"
+                //  target="_blank"
+                //  rel="noopener noreferrer"
                   className="flex items-center gap-3 w-fit hover:scale-105 text-base"
                 >
                   <FaFacebook className="w-5 h-5" />
                   <span>Facebook</span>
                 </a>
                 <a
-                  href="https://www.instagram.com/en.construction_/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                //  href="https://www.instagram.com/en.construction_/"
+                //  target="_blank"
+                //  rel="noopener noreferrer"
                   className="flex items-center gap-3 w-fit hover:scale-105 text-base"
                 >
                   <FaInstagram className="w-5 h-5" />
@@ -49,9 +49,9 @@ export default function Footer() {
                 </a>
           
                 <a
-                  href="https://www.tiktok.com/@en.construction_/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                 // href="https://www.tiktok.com/@en.construction_/"
+                 // target="_blank"
+                 // rel="noopener noreferrer"
                   className="flex items-center gap-3 w-fit hover:scale-105 text-base"
                 >
                   <FaTiktok className="w-5 h-5" />

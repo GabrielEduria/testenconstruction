@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EN-Construction",
+  title: "Construction",
   description: "Your trusted construction Company based in Metro Manila Philippines",
   icons: {
     icon: [

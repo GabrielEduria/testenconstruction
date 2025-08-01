@@ -84,6 +84,7 @@ export default function Navbar() {
                 fill
                 className="object-contain scale-100"
               />
+                 <div className="absolute inset-0 bg-white opacity-100 z-10"></div>      
             </Link>
           </div>
         </div>
