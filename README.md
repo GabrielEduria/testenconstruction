@@ -1,24 +1,43 @@
-# Solar & Construction Business Website
+# EN Construction
 
-A fully responsive business website built for a local client in the solar energy and construction industry.
-<img width="344" height="1350" alt="image" src="https://github.com/user-attachments/assets/561c6049-d6b7-4160-ab39-9f784c54c481" />
-<img width="419" height="744" alt="image" src="https://github.com/user-attachments/assets/510415b8-9a47-44a5-9c6a-6d9db8ccfd29" />
-<img width="384" height="819" alt="image" src="https://github.com/user-attachments/assets/f5416a36-b5aa-45e8-8c79-89c05c114b67" />
+Multi-page website for EN Construction, a Valenzuela City-based company offering construction, electrical works and solar installation across Metro Manila.
 
-## 🚀 Tech Stack
-- Next.js
-- Tailwind CSS
-- Photoshop (for image editing)
-- Hosted on Vercel
+## Routes
 
-## 📋 Features
-- Multi-section layout: Home, Services, Pricing, Projects, FAQs, Contact
-- Contact form logic with validation (email backend pending)
-- Custom-edited image assets
-- Mobile-responsive and SEO-friendly
+| Route | Purpose |
+|---|---|
+| `/en-construction` | Company overview, service gateways, selected projects, FAQ |
+| `/en-construction/construction` | Construction services and the townhouse renovation project |
+| `/en-construction/electrical` | Electrical works with a more technical visual language, plus 3 electrical projects |
+| `/en-construction/solar` | Solar services, process, indicative PH-market packages (3-year warranty) |
+| `/en-construction/contact` | Quote request form (pre-selects the service from `?service=`) |
 
-## 🔗 Live Preview
-[Live](https://testenconstruction.vercel.app)
+`/` redirects to `/en-construction`; the old `/solar` and `/quote` URLs redirect permanently.
 
-## 🧑‍💻 Author
-gabrieleduria.com
+## Stack
+
+Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, lucide-react, self-hosted Geist fonts.
+
+## Structure
+
+```text
+src/app/en-construction/   pages + shared layout (skip link, navbar, footer)
+src/components/ui/         Button, PageHero, SectionHeading, CapabilityGrid, ProjectCard, ProjectGallery, CTA, Reveal
+src/components/layout/     Navbar, Footer
+src/components/sections/   Faq, ContactForm
+src/data/                  site.ts (contact details, nav), projects.ts, content.ts (copy, solar packages, FAQ)
+```
+
+## Editing content
+
+- Contact details, socials and the copyright year: `src/data/site.ts` (socials with an empty URL stay hidden).
+- Projects and photos: `src/data/projects.ts` + `public/images/projects/<slug>/`.
+- Solar packages and FAQ: `src/data/content.ts`.
+
+## Develop
+
+```bash
+npm install
+npm run dev
+npm run build
+```

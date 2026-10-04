@@ -1,183 +1,64 @@
 "use client";
 
-import Link from "next/link";
-import { Sheet, SheetTrigger, SheetContent, SheetTitle } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
-import { useEffect, useState } from "react";
-import Motion from "../animation/Motion";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Button from "../ui/Button";
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import { nav } from "@/data/site";
+import { cn } from "@/lib/utils";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
-  const isHome = pathname === "/";
-  const isSolar = pathname.startsWith("/solar");
-  const isQuote = pathname.startsWith("/quote");
-
+  // Close the menu on Escape (links close it via onClick)
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const handleSheetToggle = (open: boolean) => {
-    setIsSheetOpen(open);
-  };
-
-  const handleScrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const links = isHome
-    ? [
-        { name: "Home", href: "#home" },
-        { name: "About", href: "#about" },
-        { name: "Services", href: "#services" },
-        { name: "Projects", href: "#projects" },
-        { name: "FAQs", href: "#faq" },
-        { button: "Go Solar", href: "/solar" },
-      ]
-    : isSolar
-    ? [
-        { name: "About", href: "#solar" },
-        { name: "Services", href: "#services" },
-        { name: "Pricing", href: "#pricing" },
-        { button: "Get A Quote From Us", href: "/quote" },
-      ]
-    : isQuote
-    ? [
-        { name: "About", href: "#hero" },
-        { name: "Quote", href: "#quote" },
-        { name: "Contact", href: "#contact"},
-        { name: "Services", href: "#services"},
-        { button: "Home", href: "/" },
-      ]
-    : [];
+  const isActive = (href: string) => (href === "/en-construction" ? pathname === href : pathname.startsWith(href));
 
   return (
-    <nav
-      className={`w-full h-[75px] lg:h-auto fixed top-0 left-0 z-50 transition-colors duration-400  ${
-        scrolled ? "bg-white shadow-md" : "bg-transparent"
-      }`}
-    >
-      <Motion className="w-full mx-auto flex items-center justify-between px-2 sm:px-5 lg:px-10 py-2">
-        <div
-          className={`text-2xl sm:text-4xl cursor-pointer transition-colors duration-300 ${
-            scrolled ? "text-black bg-backdrop-blur" : "text-white"
-          }`}
-          onClick={() => handleScrollTo("home")}
-        >
-          <div className="relative w-[200px] sm:w-[250px] md:w-[300px] h-[70px] sm:h-[60px] md:h-[70px]">
-            <Link href="/">
-              <Image
-                src="/images/en-construction.png"
-                alt="EN Construction Logo"
-                fill
-                className="object-contain scale-100"
-              />
-             
-            </Link>
-          </div>
-        </div>
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-ink text-white">
+      <nav aria-label="Main" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
+        <Link href="/en-construction" aria-label="EN Construction home" className="relative block h-12 w-[170px]">
+          <Image src="/images/en-construction-light.png" alt="EN Construction" fill sizes="170px" priority className="object-contain object-left" />
+        </Link>
 
-        <ul
-          className={`hidden lg:flex gap-12 items-center transition-colors duration-300 font-semibold ${
-            scrolled ? "text-black" : "text-white"
-          }`}
-        >
-          {links.map((link) => (
-            <li key={`${link.name ?? link.button}-${link.href}`}>
-              {link.button ? (
-                <Link href={link.href}>
-                  <Button variant="orange">
-                    <span className="font-bold">
-                      {link.button}
-                    </span>
-                  </Button>
-                </Link>
-              ) : link.href.startsWith("#") ? (
-                <span
-                  onClick={() => handleScrollTo(link.href.replace("#", ""))}
-                  className={`relative text-lg cursor-pointer flex content-center after:absolute after:h-0.5 after:w-0 duration-500 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 content-center ${
-                    scrolled ? "text-black after:bg-black" : "text-white after:bg-white"
-                  }`}
-                >
-                  {link.name}
-                </span>
-              ) : (
-                <Link
-                  href={link.href}
-                  className={`relative content-center text-lg cursor-pointer after:absolute after:h-0.5 after:w-0 duration-500 after:bottom-0 after:left-0 hover:after:w-full after:transition-all after:duration-300 ${
-                    scrolled ? "text-black after:bg-black" : "text-white after:bg-white"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              )}
+        <ul className="hidden items-center gap-1 md:flex">
+          {nav.map((l) => (
+            <li key={l.href}>
+              <Link href={l.href} aria-current={isActive(l.href) ? "page" : undefined}
+                className={cn("relative px-4 py-2 text-sm font-medium transition-colors hover:text-brand",
+                  isActive(l.href) ? "text-brand after:absolute after:inset-x-4 after:-bottom-0.5 after:h-0.5 after:bg-brand" : "text-white/80")}>
+                {l.label}
+              </Link>
             </li>
           ))}
         </ul>
 
-        <div className="block lg:hidden z-50">
-          <Sheet open={isSheetOpen} onOpenChange={handleSheetToggle}>
-            <SheetTrigger asChild>
-              <button
-                className={`p-2 transition-opacity duration-300 ${
-                  isSheetOpen ? "opacity-0 pointer-events-none" : "opacity-100"
-                }`}
-              >
-                <Menu
-                  className={`w-8 h-8 transition-colors duration-300 ${
-                    scrolled ? "text-black" : "text-white"
-                  }`}
-                />
-              </button>
-            </SheetTrigger>
+        <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-controls="mobile-menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          className="-mr-2 flex h-12 w-12 items-center justify-center md:hidden">
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </nav>
 
-            <SheetContent
-              side="right"
-              className="fixed inset-y-0 right-0 h-full w-[80vw] bg-white z-[60] p-5 shadow-lg overflow-y-hidden overscroll-contain"
-            >
-              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-              <ul className="flex flex-col gap-8 mt-10">
-                {links.map((link) => (
-                  <li key={`${link.name ?? link.button}-${link.href}`}>
-                    {link.href.startsWith("#") ? (
-                      <span
-                        onClick={() => {
-                          handleScrollTo(link.href.replace("#", ""));
-                          setIsSheetOpen(false);
-                        }}
-                        className="text-lg text-gray-800 hover:text-black cursor-pointer"
-                      >
-                        {link.name}
-                      </span>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        onClick={() => setIsSheetOpen(false)}
-                        className="text-lg text-gray-800 hover:text-black cursor-pointer"
-                      >
-                        {link.name ?? link.button}
-                      </Link>
-                    )}
-                    <hr className="border border-gray-200 mb-3" />
-                  </li>
-                ))}
-              </ul>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </Motion>
-    </nav>
+      <div id="mobile-menu" className={cn("grid transition-[grid-template-rows] duration-300 ease-out md:hidden", open ? "grid-rows-[1fr]" : "grid-rows-[0fr]")}>
+        <ul className="overflow-hidden bg-ink" inert={!open}>
+          {nav.map((l) => (
+            <li key={l.href} className="border-t border-white/10">
+              <Link href={l.href} onClick={() => setOpen(false)} aria-current={isActive(l.href) ? "page" : undefined}
+                className={cn("flex min-h-14 items-center px-5 text-base font-medium sm:px-8", isActive(l.href) ? "text-brand" : "text-white")}>
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </header>
   );
 }
