@@ -9,8 +9,9 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import Faq from "@/components/sections/Faq";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/sanity/projects";
 import { site } from "@/data/site";
+import type { Project } from "@/types/project";
 
 export const metadata: Metadata = {
   title: { absolute: "EN Construction | Construction, Electrical Works & Solar in Metro Manila" },
@@ -38,7 +39,9 @@ const jsonLd = {
   areaServed: "Metro Manila", description: site.description,
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const projects = await getProjects();
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
@@ -113,7 +116,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading tone="dark" eyebrow="Selected work" title="Projects we've completed" text="Real jobs, photographed on site." />
           <ul className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-12">
-            {projects.map((p, i) => (
+            {projects.map((p: Project, i: number) => (
               <li key={p.slug} className={i % 4 === 0 || i % 4 === 3 ? "md:col-span-7" : "md:col-span-5"}>
                 <Reveal><ProjectCard project={p} tone="dark" sizes="(min-width:768px) 56vw, 92vw" /></Reveal>
               </li>

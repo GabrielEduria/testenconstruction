@@ -7,7 +7,7 @@ import ProjectGallery from "@/components/ui/ProjectGallery";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import { electricalCapabilities } from "@/data/content";
-import { byCategory, bySlug } from "@/data/projects";
+import { getProjectsByCategory } from "@/sanity/projects";
 
 export const metadata: Metadata = {
   title: "Electrical Works",
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/en-construction/electrical" },
 };
 
-export default function ElectricalPage() {
-  const projects = byCategory("Electrical");
-  const all = projects.flatMap((p) => p.images);
-  const sheet = bySlug("hospital-panelboard").images;
+export default async function ElectricalPage() {
+  const projects = await getProjectsByCategory("electrical");
+  const all = projects.flatMap((p: { images: any; }) => p.images);
+  const sheet = projects[0]?.images ?? [];
   return (
     <div className="bg-steel text-white">
       {/* Technical hero */}

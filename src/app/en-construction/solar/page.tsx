@@ -4,9 +4,11 @@ import { Check, Sun } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CapabilityGrid from "@/components/ui/CapabilityGrid";
+import ProjectGallery from "@/components/ui/ProjectGallery";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import { solarBenefits, solarPackages, solarProcess, solarServices } from "@/data/content";
+import { getProjectsByCategory } from "@/sanity/projects";
 
 export const metadata: Metadata = {
   title: "Solar Installation",
@@ -14,7 +16,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/en-construction/solar" },
 };
 
-export default function SolarPage() {
+export default async function SolarPage() {
+  const projects = await getProjectsByCategory("solar");
+  const all = projects.flatMap((p) => p.images);
+
   return (
     <div className="bg-sky/60">
       <section className="relative isolate overflow-hidden bg-ink text-white">
@@ -87,10 +92,26 @@ export default function SolarPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
-        <SectionHeading eyebrow="Solar projects" title="Project gallery coming soon" text="We're preparing photos of our completed solar installations. Contact us to ask about recent solar work." />
-      </section>
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+        {projects.length > 0 ? (
+          <>
+            <SectionHeading
+              eyebrow="Solar projects"
+              title="Our solar installations"
+            />
 
+            <div className="mt-10">
+              <ProjectGallery images={all} />
+            </div>
+          </>
+        ) : (
+          <SectionHeading
+            eyebrow="Solar projects"
+            title="Solar project gallery"
+            text="Our solar project gallery will be updated as completed installations are added."
+          />
+        )}
+      </section>
       <CTA title="Ready to see what solar looks like for your roof?" text="Send us your details and your average monthly bill and we'll get back to you." label="Get a Solar Quote" href="/en-construction/contact?service=Solar" tone="brand" />
     </div>
   );

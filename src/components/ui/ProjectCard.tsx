@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { Project } from "@/data/projects";
+import type { Project } from "@/types/project";
 import { cn } from "@/lib/utils";
 
 /** Photo-led card: the photograph is the focus, text sits below the image. */

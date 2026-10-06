@@ -7,7 +7,7 @@ import ProjectGallery from "@/components/ui/ProjectGallery";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import { constructionCapabilities } from "@/data/content";
-import { bySlug } from "@/data/projects";
+import { getProjectsByCategory } from "@/sanity/projects";
 
 export const metadata: Metadata = {
   title: "Construction Services",
@@ -17,8 +17,9 @@ export const metadata: Metadata = {
 
 const scope = ["Architectural and engineering design", "New construction", "Interior and exterior renovation", "Structural improvements", "Supply and installation of materials and equipment", "Maintenance of electro-mechanical equipment"];
 
-export default function ConstructionPage() {
-  const reno = bySlug("townhouse-renovation");
+export default async function ConstructionPage() {
+  const projects = await getProjectsByCategory("construction");
+  const project = projects[0];
   return (
     <>
       <PageHero eyebrow="Construction" title="Construction built on quality workmanship."
@@ -49,9 +50,27 @@ export default function ConstructionPage() {
       </section>
 
       <section id="projects" className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-        <SectionHeading eyebrow="Project" title={reno.title} text={reno.description} />
-        <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-ink/55">{reno.sector} · {reno.category}</p>
-        <div className="mt-10"><ProjectGallery images={reno.images} /></div>
+        {project ? (
+          <>
+            <SectionHeading
+              eyebrow="Project"
+              title={project.title}
+              text={project.description}
+            />
+            <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-ink/55">
+              {project.sector} · {project.category}
+            </p>
+            <div className="mt-10">
+              <ProjectGallery images={project.images} />
+            </div>
+          </>
+        ) : (
+          <SectionHeading
+            eyebrow="Projects"
+            title="Construction projects"
+            text="Our construction project gallery will be updated as projects are added."
+          />
+        )}
       </section>
 
       <CTA title="Planning a build or renovation?" text="Share your scope and we'll get back to you with next steps." href="/en-construction/contact?service=Construction" />
