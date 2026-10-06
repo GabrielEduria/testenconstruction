@@ -1,3 +1,5 @@
+import {createClient} from 'next-sanity'
+
 export const client = createClient({
   projectId: 'rmw4p06w',
   dataset: 'production',
