@@ -51,10 +51,12 @@ export function mapSanityProject(project: SanityProject): Project {
 
   return {
     slug: project.slug?.current ?? project._id,
-    title: project.title ?? 'Untitled project',
-    category,
+    title: project.title ?? '',
+    categories: [category],
     sector: project.sector ?? '',
+    location: project.location ?? '',
     description: project.description ?? '',
-    images,
+    details: [],
+    photos: { after: images },
   }
 }

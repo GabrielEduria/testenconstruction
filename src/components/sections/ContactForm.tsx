@@ -21,7 +21,7 @@ export default function ContactForm({ defaultService = "" }: { defaultService?: 
       "", d.message,
     ];
     const subject = `Quote request: ${d.service} (${d.name})`;
-    window.location.href = `mailto:${site.emails[1]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+    window.location.href = `mailto:${site.emails[0]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
     setSent(true);
   }
 

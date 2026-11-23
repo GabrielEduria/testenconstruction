@@ -5,13 +5,13 @@ import { ArrowRight, HardHat, ShieldCheck, Handshake, Ruler } from "lucide-react
 import PageHero from "@/components/ui/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ProjectCard from "@/components/ui/ProjectCard";
+import ProjectCarousel from "@/components/projects/ProjectCarousel";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import Faq from "@/components/sections/Faq";
-import { getProjects } from "@/sanity/projects";
+import VideoEmbed from "@/components/projects/VideoEmbed";
+import { getProjects, projects as allProjects } from "@/data/projects";
 import { site } from "@/data/site";
-import type { Project } from "@/types/project";
 
 export const metadata: Metadata = {
   title: { absolute: "EN Construction | Construction, Electrical Works & Solar in Metro Manila" },
@@ -39,8 +39,9 @@ const jsonLd = {
   areaServed: "Metro Manila", description: site.description,
 };
 
-export default async function HomePage() {
-  const projects = await getProjects();
+export default function HomePage() {
+  const projects = getProjects();
+  const featured = allProjects.find((p) => p.slug === "coffee-shop");
 
   return (
     <>
@@ -111,17 +112,21 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Featured video */}
+      {featured?.video && (
+        <section className="bg-paper py-16 sm:py-24">
+          <div className="mx-auto flex max-w-6xl flex-col items-center px-5 text-center sm:px-8">
+            <SectionHeading eyebrow="On site" title={featured.title} className="mx-auto" />
+            <div className="mt-8 w-full"><VideoEmbed url={featured.video} aspect={featured.videoAspect} title={featured.title} autoplay /></div>
+          </div>
+        </section>
+      )}
+
       {/* Selected projects */}
       <section id="projects" className="bg-ink py-20 text-white sm:py-28">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading tone="dark" eyebrow="Selected work" title="Projects we've completed" text="Real jobs, photographed on site." />
-          <ul className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-12">
-            {projects.map((p: Project, i: number) => (
-              <li key={p.slug} className={i % 4 === 0 || i % 4 === 3 ? "md:col-span-7" : "md:col-span-5"}>
-                <Reveal><ProjectCard project={p} tone="dark" sizes="(min-width:768px) 56vw, 92vw" /></Reveal>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-12"><ProjectCarousel projects={projects} tone="dark" /></div>
           <div className="mt-14 flex flex-wrap gap-3">
             <ButtonLink href="/en-construction/construction" variant="outline-light">Construction projects</ButtonLink>
             <ButtonLink href="/en-construction/electrical" variant="outline-light">Electrical projects</ButtonLink>

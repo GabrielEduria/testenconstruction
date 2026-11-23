@@ -3,11 +3,11 @@ import PageHero from "@/components/ui/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CapabilityGrid from "@/components/ui/CapabilityGrid";
-import ProjectGallery from "@/components/ui/ProjectGallery";
+import ProjectCarousel from "@/components/projects/ProjectCarousel";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import { constructionCapabilities } from "@/data/content";
-import { getProjectsByCategory } from "@/sanity/projects";
+import { getProjectsByCategory } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Construction Services",
@@ -17,9 +17,8 @@ export const metadata: Metadata = {
 
 const scope = ["Architectural and engineering design", "New construction", "Interior and exterior renovation", "Structural improvements", "Supply and installation of materials and equipment", "Maintenance of electro-mechanical equipment"];
 
-export default async function ConstructionPage() {
-  const projects = await getProjectsByCategory("construction");
-  const project = projects[0];
+export default function ConstructionPage() {
+  const projects = getProjectsByCategory("Construction");
   return (
     <>
       <PageHero eyebrow="Construction" title="Construction built on quality workmanship."
@@ -50,27 +49,8 @@ export default async function ConstructionPage() {
       </section>
 
       <section id="projects" className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
-        {project ? (
-          <>
-            <SectionHeading
-              eyebrow="Project"
-              title={project.title}
-              text={project.description}
-            />
-            <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-ink/55">
-              {project.sector} · {project.category}
-            </p>
-            <div className="mt-10">
-              <ProjectGallery images={project.images} />
-            </div>
-          </>
-        ) : (
-          <SectionHeading
-            eyebrow="Projects"
-            title="Construction projects"
-            text="Our construction project gallery will be updated as projects are added."
-          />
-        )}
+        <SectionHeading eyebrow="Projects" title="Construction projects" text="Tap a project to see its photos." />
+        <div className="mt-10"><ProjectCarousel projects={projects} /></div>
       </section>
 
       <CTA title="Planning a build or renovation?" text="Share your scope and we'll get back to you with next steps." href="/en-construction/contact?service=Construction" />

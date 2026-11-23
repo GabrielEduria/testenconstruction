@@ -18,7 +18,7 @@ export default function Footer() {
           <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-brand">Explore</h2>
           <ul className="mt-4 space-y-1">
             {nav.map((l) => (
-              <li key={l.href}><Link href={l.href} className="inline-flex min-h-10 items-center text-sm hover:text-white">{l.label}</Link></li>
+              <li key={l.href}><Link href={l.href} className="inline-flex min-h-11 items-center text-sm hover:text-white">{l.label}</Link></li>
             ))}
           </ul>
         </nav>
@@ -36,7 +36,7 @@ export default function Footer() {
           {socials.length > 0 && (
             <ul className="mt-5 flex gap-4 text-sm">
               {socials.map(([name, url]) => (
-                <li key={name}><a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center capitalize hover:text-white">{name}</a></li>
+                <li key={name}><a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center capitalize hover:text-white">{name}</a></li>
               ))}
             </ul>
           )}
