@@ -8,7 +8,7 @@ import ProjectGallery from "@/components/ui/ProjectGallery";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import { solarBenefits, solarPackages, solarProcess, solarServices } from "@/data/content";
-import { getProjectsByCategory } from "@/sanity/projects";
+import { getProjectsByCategory } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Solar Installation",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "/en-construction/solar" },
 };
 
-export default async function SolarPage() {
-  const projects = await getProjectsByCategory("solar");
+export default function SolarPage() {
+  const projects = getProjectsByCategory("Solar");
   const all = projects.flatMap((p) => p.images);
 
   return (
     <div className="bg-sky/60">
       <section className="relative isolate overflow-hidden bg-ink text-white">
-        <Image src="/images/solar-roof.jpg" alt="Solar panels on a tiled roof under a clear sky" fill priority sizes="100vw" className="-z-20 object-cover" />
+        <Image src="/images/solar-roof.jpg" alt="Solar panels installed on a roof" fill priority sizes="100vw" className="-z-20 object-cover" />
         <video className="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden" autoPlay muted loop playsInline preload="metadata" aria-hidden>
           <source src="/videos/solarvideo.mp4" type="video/mp4" />
         </video>

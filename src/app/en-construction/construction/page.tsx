@@ -7,7 +7,7 @@ import ProjectGallery from "@/components/ui/ProjectGallery";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import { constructionCapabilities } from "@/data/content";
-import { getProjectsByCategory } from "@/sanity/projects";
+import { getProjectsByCategory } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Construction Services",
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
 
 const scope = ["Architectural and engineering design", "New construction", "Interior and exterior renovation", "Structural improvements", "Supply and installation of materials and equipment", "Maintenance of electro-mechanical equipment"];
 
-export default async function ConstructionPage() {
-  const projects = await getProjectsByCategory("construction");
+export default function ConstructionPage() {
+  const projects = getProjectsByCategory("Construction");
   const project = projects[0];
   return (
     <>
       <PageHero eyebrow="Construction" title="Construction built on quality workmanship."
         text="From general design to complete renovation, we turn plans into durable, functional spaces."
-        image="/images/architecture-bw.jpg" imageAlt="Black and white view of a modern steel-framed building"
+        image="/images/hero-crew.jpg" imageAlt="EN Construction crew fitting out a coffee shop interior"
         overlay="bg-gradient-to-r from-ink/90 via-ink/65 to-ink/40">
         <ButtonLink href="/en-construction/contact?service=Construction">Request a Quote</ButtonLink>
         <ButtonLink href="#projects" variant="outline-light">See Projects</ButtonLink>

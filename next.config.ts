@@ -4,12 +4,6 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     dangerouslyAllowLocalIP: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-      },
-    ],
   },
   async redirects() {
     return [

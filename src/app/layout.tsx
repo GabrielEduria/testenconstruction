@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: site.description,
   openGraph: {
     type: "website", siteName: site.name, locale: "en_PH",
-    images: [{ url: "/images/hero-render.jpg", width: 1492, height: 834, alt: "EN Construction" }],
+    images: [{ url: "/images/hero-crew.jpg", width: 2400, height: 1350, alt: "EN Construction crew at work" }],
   },
   icons: {
     icon: [{ url: "/favicon.ico" }, { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" }, { url: "/favicon.svg", type: "image/svg+xml" }],

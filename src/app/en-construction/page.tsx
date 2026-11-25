@@ -9,9 +9,8 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import Faq from "@/components/sections/Faq";
-import { getProjects } from "@/sanity/projects";
+import { getProjects } from "@/data/projects";
 import { site } from "@/data/site";
-import type { Project } from "@/types/project";
 
 export const metadata: Metadata = {
   title: { absolute: "EN Construction | Construction, Electrical Works & Solar in Metro Manila" },
@@ -20,9 +19,9 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { href: "/en-construction/construction", title: "Construction", need: "Building or renovating?", text: "General design, construction and renovation, built around quality workmanship.", image: "/images/architecture-bw.jpg", alt: "Modern building with a steel and glass facade" },
+  { href: "/en-construction/construction", title: "Construction", need: "Building or renovating?", text: "General design, construction and renovation, built around quality workmanship.", image: "/images/hero-crew.jpg", alt: "EN Construction crew fitting out a coffee shop interior" },
   { href: "/en-construction/electrical", title: "Electrical", need: "Power, panels or metering?", text: "Panelboards, meter centers, transformer setups and electro-mechanical works.", image: "/images/projects/hospital-panelboard/3.jpg", alt: "Installed electrical panelboard with organized wiring" },
-  { href: "/en-construction/solar", title: "Solar", need: "Going solar?", text: "Grid-tied solar systems, from site assessment to installation and upkeep.", image: "/images/solar-roof.jpg", alt: "Solar panels installed on a tiled roof" },
+  { href: "/en-construction/solar", title: "Solar", need: "Going solar?", text: "Grid-tied solar systems, from site assessment to installation and upkeep.", image: "/images/solar-roof.jpg", alt: "Solar panels installed on a roof" },
 ];
 
 const strengths = [
@@ -39,8 +38,8 @@ const jsonLd = {
   areaServed: "Metro Manila", description: site.description,
 };
 
-export default async function HomePage() {
-  const projects = await getProjects();
+export default function HomePage() {
+  const projects = getProjects();
 
   return (
     <>
@@ -50,7 +49,7 @@ export default async function HomePage() {
         eyebrow="Valenzuela City, Metro Manila"
         title={<>Construction.<br />Electrical.<br /><span className="text-brand">Solar.</span></>}
         text="We build, power and equip homes and buildings across Metro Manila, with dependable workmanship from design to turnover."
-        image="/images/hero-render.jpg" imageAlt="Rendered view of a modern multi-storey house"
+        image="/images/solar-roof.jpg" imageAlt="Solar panels installed on a roof" video="/videos/solarvideo.mp4"
         overlay="bg-gradient-to-t from-ink/90 via-ink/65 to-ink/45"
       >
         <ButtonLink href="#projects">Explore Our Work</ButtonLink>
@@ -116,7 +115,7 @@ export default async function HomePage() {
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading tone="dark" eyebrow="Selected work" title="Projects we've completed" text="Real jobs, photographed on site." />
           <ul className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-12">
-            {projects.map((p: Project, i: number) => (
+            {projects.map((p, i) => (
               <li key={p.slug} className={i % 4 === 0 || i % 4 === 3 ? "md:col-span-7" : "md:col-span-5"}>
                 <Reveal><ProjectCard project={p} tone="dark" sizes="(min-width:768px) 56vw, 92vw" /></Reveal>
               </li>
