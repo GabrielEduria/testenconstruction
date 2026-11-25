@@ -18,6 +18,7 @@ export const projects: Project[] = [
   {
     ...blank,
     slug: "clinic",
+    title: "Clinic",
     categories: ["Construction"],
     photos: {
       during: stage("clinic", "during", 2, "Clinic project in progress"),
@@ -39,10 +40,11 @@ export const projects: Project[] = [
   {
     ...blank,
     slug: "gym",
+    title: "Commercial Gym",
     categories: ["Construction"],
     photos: {
-      during: stage("gym", "during", 2, "Gym project in progress"),
-      after: stage("gym", "after", 2, "Completed gym project"),
+      during: stage("gym", "during", 2, "Commercial gym project in progress"),
+      after: stage("gym", "after", 2, "Completed commercial gym project"),
     },
   },
   {
