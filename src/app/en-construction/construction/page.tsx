@@ -3,7 +3,7 @@ import PageHero from "@/components/ui/PageHero";
 import { ButtonLink } from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CapabilityGrid from "@/components/ui/CapabilityGrid";
-import ProjectGallery from "@/components/ui/ProjectGallery";
+import ProjectCarousel from "@/components/projects/ProjectCarousel";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import { constructionCapabilities } from "@/data/content";
@@ -21,7 +21,6 @@ const scope = ["Architectural and engineering design", "New construction", "Inte
 
 export default function ConstructionPage() {
   const projects = getProjectsByCategory("Construction");
-  const project = projects[0];
   return (
     <>
       <PageHero eyebrow="Construction" title="Construction built on quality workmanship."
@@ -52,27 +51,8 @@ export default function ConstructionPage() {
       </section>
 
       <section id="projects" className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-40">
-        {project ? (
-          <>
-            <SectionHeading
-              eyebrow="Project"
-              title={project.title}
-              text={project.description}
-            />
-            <p className="mt-6 font-mono text-xs uppercase tracking-[0.16em] text-ink/55">
-              {project.sector} · {project.category}
-            </p>
-            <div className="mt-10">
-              <ProjectGallery images={project.images} />
-            </div>
-          </>
-        ) : (
-          <SectionHeading
-            eyebrow="Projects"
-            title="Construction projects"
-            text="Our construction project gallery will be updated as projects are added."
-          />
-        )}
+        <SectionHeading eyebrow="Projects" title="Construction projects" text="Tap a project to see its photos." />
+        <div className="mt-16 sm:mt-20"><ProjectCarousel projects={projects} /></div>
       </section>
 
       {beforeAfter.length > 0 && (

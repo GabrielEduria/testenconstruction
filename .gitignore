@@ -47,3 +47,7 @@ videos/*
 !videos/*.ts
 public/_next-video
 !.env.example
+
+# raw originals (large, contain GPS)
+/raw-images/
+/public/raw-images/

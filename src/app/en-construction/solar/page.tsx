@@ -4,7 +4,7 @@ import { Check, Sun } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CapabilityGrid from "@/components/ui/CapabilityGrid";
-import ProjectGallery from "@/components/ui/ProjectGallery";
+import ProjectCarousel from "@/components/projects/ProjectCarousel";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import { solarBenefits, solarPackages, solarProcess, solarServices } from "@/data/content";
@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 
 export default function SolarPage() {
   const projects = getProjectsByCategory("Solar");
-  const all = projects.flatMap((p) => p.images);
 
   return (
     <div className="bg-sky/60">
@@ -95,21 +94,11 @@ export default function SolarPage() {
       <section className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-36">
         {projects.length > 0 ? (
           <>
-            <SectionHeading
-              eyebrow="Solar projects"
-              title="Our solar installations"
-            />
-
-            <div className="mt-10">
-              <ProjectGallery images={all} />
-            </div>
+            <SectionHeading eyebrow="Solar projects" title="Our solar installations" text="Tap a project to see more." />
+            <div className="mt-16 sm:mt-20"><ProjectCarousel projects={projects} /></div>
           </>
         ) : (
-          <SectionHeading
-            eyebrow="Solar projects"
-            title="Solar project gallery"
-            text="Our solar project gallery will be updated as completed installations are added."
-          />
+          <SectionHeading eyebrow="Solar projects" title="Solar project gallery" text="Our solar project gallery will be updated as completed installations are added." />
         )}
       </section>
       <CTA title="Ready to see what solar looks like for your roof?" text="Send us your details and your average monthly bill and we'll get back to you." label="Get a Solar Quote" href="/en-construction/contact?service=Solar" tone="brand" />

@@ -4,10 +4,10 @@ import { ButtonLink } from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CapabilityGrid from "@/components/ui/CapabilityGrid";
 import ProjectGallery from "@/components/ui/ProjectGallery";
-import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import { electricalCapabilities } from "@/data/content";
-import { getProjectsByCategory } from "@/data/projects";
+import ProjectCarousel from "@/components/projects/ProjectCarousel";
+import { getProjectsByCategory, photoList } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Electrical Works",
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 
 export default function ElectricalPage() {
   const projects = getProjectsByCategory("Electrical");
-  const all = projects.flatMap((p) => p.images);
-  const sheet = projects[0]?.images ?? [];
+  const all = projects.flatMap((p) => photoList(p, "before", "during", "after"));
+  const sheet = projects[0] ? photoList(projects[0], "after") : [];
   return (
     <div className="bg-steel text-white">
       {/* Technical hero */}
@@ -52,27 +52,7 @@ export default function ElectricalPage() {
       <section id="projects" className="border-t border-white/10 bg-ink py-28 sm:py-36">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading tone="dark" eyebrow="Electrical projects" title="Work we've completed" />
-          <ol className="mt-16 sm:mt-20 divide-y divide-white/10 border-y border-white/10">
-            {projects.map((p, i) => (
-              <li key={p.slug}>
-                <Reveal className="grid gap-6 py-10 lg:grid-cols-[5rem_1fr_1.3fr]">
-                  <span className="font-mono text-3xl font-semibold text-brand">0{i + 1}</span>
-                  <div>
-                    <p className="font-mono text-xs uppercase tracking-[0.16em] text-white/55">{p.sector} · {p.category}</p>
-                    <h3 className="mt-2 text-2xl font-semibold">{p.title}</h3>
-                    <p className="mt-3 max-w-prose text-sm leading-relaxed text-white/70">{p.description}</p>
-                  </div>
-                  <ul className="grid grid-cols-4 gap-2">
-                    {p.images.map((img) => (
-                      <li key={img.src} className="relative aspect-square overflow-hidden bg-white/5">
-                        <Image src={img.src} alt={img.alt} fill sizes="(min-width:1024px) 12vw, 22vw" className="object-cover" />
-                      </li>
-                    ))}
-                  </ul>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
+          <div className="mt-16 sm:mt-20"><ProjectCarousel projects={projects} tone="dark" /></div>
         </div>
       </section>
 

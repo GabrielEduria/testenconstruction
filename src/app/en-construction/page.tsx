@@ -5,11 +5,12 @@ import { ArrowRight, HardHat, ShieldCheck, Handshake, Ruler } from "lucide-react
 import HeroShowreel, { type ShowreelSlide } from "@/components/ui/HeroShowreel";
 import { ButtonLink } from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ProjectCard from "@/components/ui/ProjectCard";
+import ProjectCarousel from "@/components/projects/ProjectCarousel";
 import Reveal from "@/components/ui/Reveal";
 import CTA from "@/components/ui/CTA";
 import Faq from "@/components/sections/Faq";
-import { getProjects } from "@/data/projects";
+import VideoEmbed from "@/components/projects/VideoEmbed";
+import { getProjects, projects as allProjects } from "@/data/projects";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ const jsonLd = {
 
 export default function HomePage() {
   const projects = getProjects();
+  const featured = allProjects.find((p) => p.slug === "coffee-shop");
 
   return (
     <>
@@ -103,17 +105,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Featured video */}
+      {featured?.video && (
+        <section className="bg-paper py-28 sm:py-36">
+          <div className="mx-auto flex max-w-6xl flex-col items-center px-5 text-center sm:px-8">
+            <SectionHeading eyebrow="On site" title={featured.title} className="mx-auto" />
+            <div className="mt-12 w-full"><VideoEmbed url={featured.video} aspect={featured.videoAspect} title={featured.title} autoplay /></div>
+          </div>
+        </section>
+      )}
+
       {/* Selected projects */}
       <section id="projects" className="bg-ink py-28 text-white sm:py-40">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading tone="dark" eyebrow="Selected work" title="Projects we've completed" text="Real jobs, photographed on site." />
-          <ul className="mt-16 sm:mt-20 grid gap-x-8 gap-y-14 md:grid-cols-12">
-            {projects.map((p, i) => (
-              <li key={p.slug} className={i % 4 === 0 || i % 4 === 3 ? "md:col-span-7" : "md:col-span-5"}>
-                <Reveal><ProjectCard project={p} tone="dark" sizes="(min-width:768px) 56vw, 92vw" /></Reveal>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-16 sm:mt-20"><ProjectCarousel projects={projects} tone="dark" /></div>
           <div className="mt-20 flex flex-wrap gap-3">
             <ButtonLink href="/en-construction/construction" variant="outline-light">Construction projects</ButtonLink>
             <ButtonLink href="/en-construction/electrical" variant="outline-light">Electrical projects</ButtonLink>
