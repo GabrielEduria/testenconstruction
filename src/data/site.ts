@@ -5,8 +5,8 @@ export const site = {
   tagline: "Construction. Electrical. Solar.",
   description:
     "EN Construction is a Valenzuela City-based company providing construction, electrical works and solar installation across Metro Manila.",
-  phones: ["+63 917 123 4567", "+63 44 123 4567"],
-  emails: ["info@valenzuelasolar.ph", "quotes@valenzuelasolar.ph"],
+  phones: ["+63 908 667 8630"],
+  emails: ["en.construction2024@gmail.com"],
   address: ["Gen. T. de Leon, Valenzuela City", "Metro Manila, Philippines"],
   // Add real URLs here to show them in the footer. Empty entries are hidden.
   socials: { facebook: "", instagram: "", tiktok: "" },

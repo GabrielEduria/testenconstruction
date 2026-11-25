@@ -30,7 +30,7 @@ const services = [
  */
 const showreel: ShowreelSlide[] = [
   { label: "Construction", poster: "/images/hero-crew.jpg", posterAlt: "EN Construction crew fitting out a coffee shop interior" /* , video: "/videos/home-construction.mp4" */ },
-  { label: "Electrical", poster: "/images/projects/transformer-pole/4.jpg", posterAlt: "Pole-mounted transformers installed by EN Construction" /* , video: "/videos/home-electrical.mp4" */ },
+  { label: "Electrical", poster: "/images/electric.png", posterAlt: "Neatly wired electrical control panel with breakers and terminal blocks" /* , video: "/videos/home-electrical.mp4" */ },
   { label: "Solar", poster: "/images/solar-roof.jpg", posterAlt: "Solar panels installed on a roof", video: "/videos/solarvideo.mp4" },
 ];
 

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { CheckCircle2 } from "lucide-react";
 import { site } from "@/data/site";
 import { Button } from "../ui/Button";
 
@@ -8,25 +9,56 @@ const field = "mt-2 block min-h-12 w-full rounded-sm border border-ink/30 bg-whi
 const label = "block text-sm font-semibold";
 const services = ["Construction", "Electrical", "Solar", "Not sure yet"];
 
+type Status = "idle" | "sending" | "sent" | "error";
+
 export default function ContactForm({ defaultService = "" }: { defaultService?: string }) {
   const [service, setService] = useState(defaultService);
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [error, setError] = useState("");
+  const startedAt = useRef(0);
+  useEffect(() => { startedAt.current = Date.now(); }, []);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const d = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
-    const lines = [
-      `Name: ${d.name}`, `Phone: ${d.phone}`, `Email: ${d.email}`, `Service: ${d.service}`, `Location: ${d.location || "-"}`,
-      ...(d.service === "Solar" ? [`Property type: ${d.property || "-"}`, `Monthly electric bill: ${d.bill || "-"}`] : []),
-      "", d.message,
-    ];
-    const subject = `Quote request: ${d.service} (${d.name})`;
-    window.location.href = `mailto:${site.emails[1]}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
-    setSent(true);
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
+    setStatus("sending");
+    setError("");
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, startedAt: startedAt.current }),
+      });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(out.error || "Something went wrong.");
+      setStatus("sent");
+      form.reset();
+      setService("");
+    } catch (err) {
+      setStatus("error");
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    }
+  }
+
+  if (status === "sent") {
+    return (
+      <div role="status" className="border-l-4 border-brand bg-white p-8">
+        <CheckCircle2 className="h-8 w-8 text-brand-ink" aria-hidden />
+        <h2 className="mt-4 text-2xl font-bold">Thanks, we got your request.</h2>
+        <p className="mt-3 leading-relaxed text-ink/70">Our team will review your project and get back to you by phone or email, usually within one business day.</p>
+        <button type="button" onClick={() => setStatus("idle")} className="mt-6 min-h-11 text-sm font-semibold text-brand-ink underline">Send another request</button>
+      </div>
+    );
   }
 
   return (
     <form onSubmit={onSubmit} className="space-y-5" aria-describedby="form-note">
+      {/* Spam trap: hidden from people, bots tend to fill it in */}
+      <div className="absolute -left-[9999px]" aria-hidden>
+        <label htmlFor="company">Company</label>
+        <input id="company" name="company" tabIndex={-1} autoComplete="off" />
+      </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <div><label htmlFor="name" className={label}>Full name *</label>
           <input id="name" name="name" required autoComplete="name" className={field} /></div>
@@ -58,10 +90,13 @@ export default function ContactForm({ defaultService = "" }: { defaultService?: 
       <div><label htmlFor="message" className={label}>Project details *</label>
         <textarea id="message" name="message" required rows={5} className={`${field} py-3`} /></div>
 
-      <Button type="submit" className="w-full sm:w-auto">Send Request</Button>
-      <p id="form-note" role="status" className="text-sm text-ink/70">
-        {sent ? "Your email app should open with your request ready to send. If it doesn't, email us directly at the address on this page."
-              : "This opens your email app with your details filled in."}
+      <Button type="submit" disabled={status === "sending"} className="w-full sm:w-auto">
+        {status === "sending" ? "Sending..." : "Send Request"}
+      </Button>
+      <p id="form-note" role={status === "error" ? "alert" : "status"} className={status === "error" ? "text-sm font-medium text-red-700" : "text-sm text-ink/70"}>
+        {status === "error"
+          ? <>{error} You can also email <a href={`mailto:${site.emails[0]}`} className="underline">{site.emails[0]}</a> or call {site.phones[0]}.</>
+          : "We reply by phone or email, usually within one business day."}
       </p>
     </form>
   );
