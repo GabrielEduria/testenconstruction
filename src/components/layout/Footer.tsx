@@ -8,7 +8,7 @@ const socials = Object.entries(site.socials).filter(([, url]) => url);
 export default function Footer() {
   return (
     <footer className="bg-ink text-white/70">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.3fr_1fr_1.4fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 sm:px-8 md:grid-cols-[1.3fr_1fr_1.4fr]">
         <div>
           <Image src="/images/en-construction-light.png" alt="EN Construction" width={190} height={38} className="h-auto w-[190px]" />
           <p className="mt-5 max-w-xs text-sm leading-relaxed">Construction, electrical works and solar installation, based in Valenzuela City and serving Metro Manila.</p>

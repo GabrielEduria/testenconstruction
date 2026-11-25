@@ -22,8 +22,8 @@ export default function ElectricalPage() {
   return (
     <div className="bg-steel text-white">
       {/* Technical hero */}
-      <section className="grid-lines relative overflow-hidden bg-ink">
-        <div className="mx-auto grid max-w-6xl items-end gap-12 px-5 pb-16 pt-20 sm:px-8 lg:grid-cols-[1.1fr_1fr] lg:pb-24 lg:pt-28">
+      <section className="grid-lines relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-ink">
+        <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[1.1fr_1fr] lg:gap-20 lg:py-24">
           <div>
             <p className="mb-4 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-brand"><span className="h-0.5 w-8 bg-brand" aria-hidden />Electrical Works</p>
             <h1 className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">Safe, reliable electrical installations.</h1>
@@ -44,15 +44,15 @@ export default function ElectricalPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+      <section className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-36">
         <SectionHeading tone="dark" eyebrow="Capabilities" title="Structured, organized, tested." text="Clean installations and tidy wire dressing, with testing and commissioning where the job calls for it." />
         <div className="mt-12"><CapabilityGrid items={electricalCapabilities} tone="dark" /></div>
       </section>
 
-      <section id="projects" className="border-t border-white/10 bg-ink py-20 sm:py-24">
+      <section id="projects" className="border-t border-white/10 bg-ink py-28 sm:py-36">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading tone="dark" eyebrow="Electrical projects" title="Work we've completed" />
-          <ol className="mt-12 divide-y divide-white/10 border-y border-white/10">
+          <ol className="mt-16 sm:mt-20 divide-y divide-white/10 border-y border-white/10">
             {projects.map((p, i) => (
               <li key={p.slug}>
                 <Reveal className="grid gap-6 py-10 lg:grid-cols-[5rem_1fr_1.3fr]">
@@ -76,7 +76,7 @@ export default function ElectricalPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+      <section className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-36">
         <SectionHeading tone="dark" eyebrow="Gallery" title="On site" />
         <div className="mt-10"><ProjectGallery images={all} tone="dark" /></div>
       </section>

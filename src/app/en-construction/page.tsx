@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, HardHat, ShieldCheck, Handshake, Ruler } from "lucide-react";
-import PageHero from "@/components/ui/PageHero";
+import HeroShowreel, { type ShowreelSlide } from "@/components/ui/HeroShowreel";
 import { ButtonLink } from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ProjectCard from "@/components/ui/ProjectCard";
@@ -22,6 +22,16 @@ const services = [
   { href: "/en-construction/construction", title: "Construction", need: "Building or renovating?", text: "General design, construction and renovation, built around quality workmanship.", image: "/images/hero-crew.jpg", alt: "EN Construction crew fitting out a coffee shop interior" },
   { href: "/en-construction/electrical", title: "Electrical", need: "Power, panels or metering?", text: "Panelboards, meter centers, transformer setups and electro-mechanical works.", image: "/images/projects/hospital-panelboard/3.jpg", alt: "Installed electrical panelboard with organized wiring" },
   { href: "/en-construction/solar", title: "Solar", need: "Going solar?", text: "Grid-tied solar systems, from site assessment to installation and upkeep.", image: "/images/solar-roof.jpg", alt: "Solar panels installed on a roof" },
+];
+
+/**
+ * Home hero clips, in headline order. Drop MP4s into /public/videos and set `video` on each slide.
+ * Clip spec: H.264 MP4, 1920x1080 or 1280x720, 6-8 s, no audio, under ~4 MB.
+ */
+const showreel: ShowreelSlide[] = [
+  { label: "Construction", poster: "/images/hero-crew.jpg", posterAlt: "EN Construction crew fitting out a coffee shop interior" /* , video: "/videos/home-construction.mp4" */ },
+  { label: "Electrical", poster: "/images/projects/transformer-pole/4.jpg", posterAlt: "Pole-mounted transformers installed by EN Construction" /* , video: "/videos/home-electrical.mp4" */ },
+  { label: "Solar", poster: "/images/solar-roof.jpg", posterAlt: "Solar panels installed on a roof", video: "/videos/solarvideo.mp4" },
 ];
 
 const strengths = [
@@ -45,34 +55,17 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <PageHero
+      <HeroShowreel
         eyebrow="Valenzuela City, Metro Manila"
-        title={<>Construction.<br />Electrical.<br /><span className="text-brand">Solar.</span></>}
         text="We build, power and equip homes and buildings across Metro Manila, with dependable workmanship from design to turnover."
-        image="/images/solar-roof.jpg" imageAlt="Solar panels installed on a roof" video="/videos/solarvideo.mp4"
-        overlay="bg-gradient-to-t from-ink/90 via-ink/65 to-ink/45"
+        slides={showreel}
       >
         <ButtonLink href="#projects">Explore Our Work</ButtonLink>
         <ButtonLink href="/en-construction/contact" variant="outline-light">Request a Quote</ButtonLink>
-      </PageHero>
-
-      {/* Needs-based gateway */}
-      <section aria-labelledby="needs" className="bg-ink">
-        <h2 id="needs" className="sr-only">Choose a service</h2>
-        <ul className="mx-auto grid max-w-6xl divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          {services.map((s) => (
-            <li key={s.title}>
-              <Link href={s.href} className="group flex min-h-24 items-center justify-between gap-4 px-5 py-6 text-white transition-colors hover:bg-brand hover:text-ink sm:px-8">
-                <span><span className="block text-sm text-white/60 group-hover:text-ink/70">{s.need}</span><span className="mt-1 block text-xl font-semibold">{s.title}</span></span>
-                <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" aria-hidden />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      </HeroShowreel>
 
       {/* Company introduction */}
-      <section className="mx-auto grid max-w-6xl gap-10 px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[1fr_1.2fr]">
+      <section className="mx-auto grid max-w-6xl gap-12 px-5 py-28 sm:px-8 sm:py-40 lg:grid-cols-[1fr_1.2fr]">
         <SectionHeading eyebrow="Who we are" title="General design and construction, with electrical and solar in-house." />
         <Reveal>
           <p className="text-lg leading-relaxed text-ink/75">
@@ -85,10 +78,10 @@ export default function HomePage() {
       </section>
 
       {/* Three services */}
-      <section className="bg-concrete/60 py-20 sm:py-24">
+      <section className="bg-concrete/60 py-28 sm:py-36">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading eyebrow="What we do" title="Three services, one team" text="Pick the service that fits your project to see what we offer and the work we've completed." />
-          <ul className="mt-12 grid gap-6 md:grid-cols-3">
+          <ul className="mt-16 sm:mt-20 grid gap-6 md:grid-cols-3">
             {services.map((s, i) => (
               <li key={s.title}>
                 <Reveal delay={i * 80}>
@@ -111,17 +104,17 @@ export default function HomePage() {
       </section>
 
       {/* Selected projects */}
-      <section id="projects" className="bg-ink py-20 text-white sm:py-28">
+      <section id="projects" className="bg-ink py-28 text-white sm:py-40">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading tone="dark" eyebrow="Selected work" title="Projects we've completed" text="Real jobs, photographed on site." />
-          <ul className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-12">
+          <ul className="mt-16 sm:mt-20 grid gap-x-8 gap-y-14 md:grid-cols-12">
             {projects.map((p, i) => (
               <li key={p.slug} className={i % 4 === 0 || i % 4 === 3 ? "md:col-span-7" : "md:col-span-5"}>
                 <Reveal><ProjectCard project={p} tone="dark" sizes="(min-width:768px) 56vw, 92vw" /></Reveal>
               </li>
             ))}
           </ul>
-          <div className="mt-14 flex flex-wrap gap-3">
+          <div className="mt-20 flex flex-wrap gap-3">
             <ButtonLink href="/en-construction/construction" variant="outline-light">Construction projects</ButtonLink>
             <ButtonLink href="/en-construction/electrical" variant="outline-light">Electrical projects</ButtonLink>
           </div>
@@ -129,7 +122,7 @@ export default function HomePage() {
       </section>
 
       {/* About + why */}
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <section className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-40">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
           <SectionHeading eyebrow="Why EN Construction" title="Dependable work, done properly" text="Our aim is to be a trusted name in design and construction, delivering solutions that serve businesses and communities with high standards of quality, safety and reliability." />
           <ul className="grid gap-px border border-ink/10 bg-ink/10 sm:grid-cols-2">

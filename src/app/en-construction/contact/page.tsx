@@ -16,7 +16,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
   const preset = ["Construction", "Electrical", "Solar"].find((s) => s.toLowerCase() === service?.toLowerCase()) ?? "";
   return (
     <>
-      <section className="bg-ink px-5 pb-16 pt-20 text-white sm:px-8">
+      <section className="bg-ink px-5 pb-20 pt-28 text-white sm:px-8">
         <div className="mx-auto max-w-6xl">
           <p className="mb-4 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-brand"><span className="h-0.5 w-8 bg-brand" aria-hidden />Contact</p>
           <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl">Request a quote</h1>
@@ -24,7 +24,7 @@ export default async function ContactPage({ searchParams }: { searchParams: Prom
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-14 px-5 py-16 sm:px-8 lg:grid-cols-[1.4fr_1fr]">
+      <section className="mx-auto grid max-w-6xl gap-16 px-5 py-24 sm:px-8 sm:py-28 lg:grid-cols-[1.4fr_1fr]">
         <ContactForm key={preset} defaultService={preset} />
         <aside aria-label="Contact details" className="space-y-8 lg:border-l lg:border-ink/15 lg:pl-10">
           <ul className="space-y-6 text-sm">

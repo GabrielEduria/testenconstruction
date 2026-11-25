@@ -13,7 +13,7 @@ export default function SectionHeading({ eyebrow, title, text, tone = "light", c
         </p>
       )}
       <h2 className={cn("text-3xl font-bold leading-tight tracking-tight sm:text-4xl", dark ? "text-white" : "text-ink")}>{title}</h2>
-      {text && <p className={cn("mt-4 text-base leading-relaxed sm:text-lg", dark ? "text-white/70" : "text-ink/70")}>{text}</p>}
+      {text && <p className={cn("mt-5 text-base leading-relaxed sm:text-lg", dark ? "text-white/70" : "text-ink/70")}>{text}</p>}
     </div>
   );
 }

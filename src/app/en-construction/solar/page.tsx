@@ -22,13 +22,13 @@ export default function SolarPage() {
 
   return (
     <div className="bg-sky/60">
-      <section className="relative isolate overflow-hidden bg-ink text-white">
+      <section className="relative isolate flex min-h-[calc(100svh-4rem)] overflow-hidden bg-ink text-white">
         <Image src="/images/solar-roof.jpg" alt="Solar panels installed on a roof" fill priority sizes="100vw" className="-z-20 object-cover" />
         <video className="absolute inset-0 -z-10 h-full w-full object-cover motion-reduce:hidden" autoPlay muted loop playsInline preload="metadata" aria-hidden>
           <source src="/videos/solarvideo.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 -z-[5] bg-gradient-to-t from-ink/90 via-ink/60 to-ink/40" aria-hidden />
-        <div className="mx-auto flex min-h-[78svh] max-w-6xl flex-col justify-end px-5 pb-16 pt-24 sm:px-8 lg:pb-24">
+        <div className="mx-auto flex w-full max-w-6xl flex-col justify-end px-5 pb-20 pt-28 sm:px-8 lg:pb-28">
           <p className="mb-4 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-brand"><span className="h-0.5 w-8 bg-brand" aria-hidden />Solar</p>
           <h1 className="max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">Solar systems, installed properly.</h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">We help property owners adopt reliable renewable energy through practical installation and project execution.</p>
@@ -39,17 +39,17 @@ export default function SolarPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-10 px-5 py-20 sm:px-8 sm:py-24 lg:grid-cols-[1fr_1.2fr]">
+      <section className="mx-auto grid max-w-6xl gap-12 px-5 py-28 sm:px-8 sm:py-36 lg:grid-cols-[1fr_1.2fr]">
         <SectionHeading eyebrow="Overview" title="Power your property with the sun." />
         <Reveal><p className="text-lg leading-relaxed text-ink/75">Our grid-tied solar systems are designed around your roof and your energy use, then installed and tested by our own team. Every installation comes with a 3-year warranty.</p></Reveal>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 pb-20 sm:px-8" aria-labelledby="svc"><h2 id="svc" className="sr-only">Solar services</h2><CapabilityGrid items={solarServices} /></section>
+      <section className="mx-auto max-w-6xl px-5 pb-28 sm:px-8 sm:pb-36" aria-labelledby="svc"><h2 id="svc" className="sr-only">Solar services</h2><CapabilityGrid items={solarServices} /></section>
 
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-28 sm:py-36">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading eyebrow="How it works" title="From first call to turnover" />
-          <ol className="mt-12 grid gap-6 md:grid-cols-5">
+          <ol className="mt-16 sm:mt-20 grid gap-6 md:grid-cols-5">
             {solarProcess.map((s, i) => (
               <li key={s.title} className="border-t-4 border-brand pt-4">
                 <span className="font-mono text-sm text-brand-ink">0{i + 1}</span>
@@ -61,9 +61,9 @@ export default function SolarPage() {
         </div>
       </section>
 
-      <section id="packages" className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <section id="packages" className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-40">
         <SectionHeading eyebrow="Packages" title="Indicative pricing for grid-tied systems" text="Typical installed price ranges in Metro Manila. The final quote depends on your roof, brand selection and a site survey." />
-        <ul className="mt-12 grid items-stretch gap-6 md:grid-cols-3">
+        <ul className="mt-16 sm:mt-20 grid items-stretch gap-6 md:grid-cols-3">
           {solarPackages.map((p) => (
             <li key={p.name} className={`flex flex-col border bg-white p-7 ${p.featured ? "border-2 border-brand shadow-lg" : "border-ink/15"}`}>
               {p.featured && <p className="mb-3 w-fit bg-brand px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-wider">Most requested</p>}
@@ -80,10 +80,10 @@ export default function SolarPage() {
         <p className="mt-6 max-w-3xl text-sm leading-relaxed text-ink/60">Ranges are estimates for grid-tied systems without batteries. Hybrid or battery-backed systems cost more. Net-metering approval is subject to your utility.</p>
       </section>
 
-      <section className="bg-white py-20 sm:py-24">
+      <section className="bg-white py-28 sm:py-36">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <SectionHeading eyebrow="Practical benefits" title="Why property owners go solar" />
-          <ul className="mt-12 grid gap-8 sm:grid-cols-2">
+          <ul className="mt-16 sm:mt-20 grid gap-8 sm:grid-cols-2">
             {solarBenefits.map((b) => (
               <li key={b.title} className="flex gap-4"><Sun className="mt-1 h-6 w-6 shrink-0 text-brand" strokeWidth={1.75} aria-hidden />
                 <div><h3 className="text-lg font-semibold">{b.title}</h3><p className="mt-1.5 text-sm leading-relaxed text-ink/65">{b.text}</p></div></li>
@@ -92,7 +92,7 @@ export default function SolarPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+      <section className="mx-auto max-w-6xl px-5 py-28 sm:px-8 sm:py-36">
         {projects.length > 0 ? (
           <>
             <SectionHeading

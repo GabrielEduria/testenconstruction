@@ -27,6 +27,10 @@
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease-out, transform .55s ease-out; }
 .reveal[data-in="true"] { opacity: 1; transform: none; }
 
+/* Home showreel: slide progress bar and slow zoom on still slides */
+@keyframes progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
+
 /* Technical grid backdrop used on the electrical page */
 .grid-lines {
   background-image:

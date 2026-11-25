@@ -4,7 +4,7 @@ import SectionHeading from "../ui/SectionHeading";
 
 export default function Faq() {
   return (
-    <section className="bg-concrete/60 py-20 sm:py-24">
+    <section className="bg-concrete/60 py-28 sm:py-36">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.6fr]">
         <SectionHeading eyebrow="Questions" title="Frequently asked questions" text="Straight answers about how we work. Anything else, send us a message." />
         <div className="divide-y divide-ink/15 border-y border-ink/15">
