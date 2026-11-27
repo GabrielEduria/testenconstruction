@@ -24,8 +24,11 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ink text-white">
       <nav aria-label="Main" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link href="/en-construction" aria-label="EN Construction home" className="relative block h-12 w-[170px]">
-          <Image src="/images/en-construction-light.png" alt="EN Construction" fill sizes="170px" priority className="object-contain object-left" />
+        <Link href="/en-construction" aria-label="EN Construction home" className="flex items-center gap-2.5">
+          <Image src="/images/en-icon.png" alt="" width={44} height={43} priority className="h-11 w-auto" />
+          <span className="text-xl font-extrabold uppercase tracking-tight">
+            <span className="text-brand">EN</span>-<span className="text-white">Construction</span>
+          </span>
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">

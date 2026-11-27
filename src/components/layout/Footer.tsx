@@ -10,7 +10,12 @@ export default function Footer() {
     <footer className="bg-ink text-white/70">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 sm:px-8 md:grid-cols-[1.3fr_1fr_1.4fr]">
         <div>
-          <Image src="/images/en-construction-light.png" alt="EN Construction" width={190} height={38} className="h-auto w-[190px]" />
+          <div className="flex items-center gap-3">
+            <Image src="/images/en-icon.png" alt="" width={52} height={51} className="h-13 w-auto" />
+            <span className="text-2xl font-extrabold uppercase tracking-tight">
+              <span className="text-brand">EN</span>-<span className="text-white">Construction</span>
+            </span>
+          </div>
           <p className="mt-5 max-w-xs text-sm leading-relaxed">Construction, electrical works and solar installation, based in Valenzuela City and serving Metro Manila.</p>
         </div>
 
