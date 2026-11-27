@@ -34,6 +34,15 @@ src/data/                  site.ts (contact details, nav), projects.ts, content.
 - Projects and photos: `src/data/projects.ts` + `public/images/projects/<slug>/`.
 - Solar packages and FAQ: `src/data/content.ts`.
 
+## Admin quotation maker (`/admin`)
+
+A private, noindex page for making solar quotations. It is not linked from the public site or listed in the sitemap.
+
+- **Password:** set `ADMIN_PASSWORD` in the hosting environment variables (and in `.env.local` locally), then redeploy. It is checked only on the server (`src/app/api/admin/session`), a route handler that Vercel, or Netlify's Next.js adapter, runs as a serverless function.
+- **Data:** prices, terms, the current draft and quote history stay in the browser's local storage on that device. Nothing is stored on the server or in this repo. Never commit real prices or client details.
+- **Prices:** start blank. A PDF cannot be made until every quoted item has a price and the required terms are filled in.
+- **Code:** calculations in `src/lib/admin/quote.ts`, PDF layout in `src/lib/admin/pdf.ts`, screens in `src/components/admin/`.
+
 ## Develop
 
 ```bash
